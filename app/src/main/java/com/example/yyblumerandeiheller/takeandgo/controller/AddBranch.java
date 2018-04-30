@@ -2,8 +2,8 @@ package com.example.yyblumerandeiheller.takeandgo.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.yyblumerandeiheller.takeandgo.R;
 
+import com.example.yyblumerandeiheller.takeandgo.R;
 
 public class AddBranch extends AppCompatActivity {
 

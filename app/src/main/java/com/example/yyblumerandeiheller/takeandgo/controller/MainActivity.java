@@ -17,7 +17,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
             setContentView(R.layout.activity_main);
         }
 
-        public void btnUsersClick(View view) {
+        public void addCustomerBtnClick(View view) {
             try {
                 startActivity( new Intent( MainActivity.this,AddCustomer.class ) );
             } catch (Exception e) {
@@ -25,5 +25,34 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
             }
         }
+
+        public void addBranchBtnClick(View view) {
+            try {
+                startActivity( new Intent( MainActivity.this,AddBranch.class ) );
+            } catch (Exception e) {
+                Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
+
+            }
+        }
+
+        public void addCarBtnClick(View view) {
+            try {
+                startActivity( new Intent( MainActivity.this,AddCar.class ) );
+            } catch (Exception e) {
+                Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
+
+            }
+        }
+
+
+        public void addCarModelBtnClick(View view) {
+            try {
+                startActivity( new Intent( MainActivity.this,AddCarModel.class ) );
+            } catch (Exception e) {
+                Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
+
+            }
+        }
+
 
 }

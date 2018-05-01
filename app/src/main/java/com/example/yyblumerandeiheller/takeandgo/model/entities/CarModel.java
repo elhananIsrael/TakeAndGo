@@ -3,7 +3,9 @@ package com.example.yyblumerandeiheller.takeandgo.model.entities;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums.gearboxMode;
 
 
-public class CarModel {
+public class CarModel
+{
+
     protected String modelCode;
     protected String companyName;
     protected String modelName;

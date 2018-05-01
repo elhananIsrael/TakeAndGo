@@ -1,50 +1,69 @@
 package com.example.yyblumerandeiheller.takeandgo.model.entities;
 
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums.carKind;
+import java.util.Date;
 
 
-public class Car {
-    protected String homeBranch;
-    protected carKind kindOfCar;
-    protected int kilometreSize;
-    protected String carNumber;
+public class Car
+{
+    protected CarModel Model;
+    protected Date ProductionDate;
+    protected int Mileage;
+    protected String LicenseNumber;
+    protected String HomeBranch;
+    protected int AverageCostPerDay;
+    protected boolean Busy;
 
-    public Car(String homeBranch, carKind kindOfCar, int kilometreSize, String carNumber){
-        this.homeBranch = homeBranch;
-        this.kindOfCar = kindOfCar;
-        this.kilometreSize = kilometreSize;
-        this.carNumber = carNumber;
+
+    public Car(CarModel model, Date productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
+    {
+        this.Model=model;
+        this.ProductionDate=productionDate;
+        this.LicenseNumber=licenseNumber;
+        this.Mileage=mileage;
+        this.HomeBranch=homeBranch;
+        this.AverageCostPerDay=averageCostPerDay;
+        this.Busy=false;
     }
 
+
+    public CarModel getModel() {
+        return Model;
+    }
+
+    public void setCarModel(CarModel carModel) {
+        this.Model = carModel;
+    }
+
+    public Date getProductionDate(){ return ProductionDate;}
+
+    public void setProductionDate(Date productionDate){ this.ProductionDate=productionDate;}
+
+    public int getMileage() { return Mileage; }
+
+    public void setMileage(int mileage) {
+        this.Mileage = mileage;
+    }
+
+    public String getLicenseNumber() {
+        return LicenseNumber;
+    }
+
+    public void setLicenseNumber(String licenseNumber) { this.LicenseNumber = licenseNumber; }
+
     public String getHomeBranch() {
-        return homeBranch;
+        return HomeBranch;
     }
 
     public void setHomeBranch(String homeBranch) {
-        this.homeBranch = homeBranch;
+        this.HomeBranch = homeBranch;
     }
 
-    public carKind getKindOfCar() {
-        return kindOfCar;
-    }
+    public int getAverageCostPerDay(){return AverageCostPerDay;}
 
-    public void setKindOfCar(carKind kindOfCar) {
-        this.kindOfCar = kindOfCar;
-    }
+    public void setAverageCostPerDay(int averageCostPerDay){this.AverageCostPerDay=averageCostPerDay;}
 
-    public int getKilometreSize() {
-        return kilometreSize;
-    }
+    public boolean getBusy(){return Busy;}
 
-    public void setKilometreSize(int kilometreSize) {
-        this.kilometreSize = kilometreSize;
-    }
-
-    public String getCarNumber() {
-        return carNumber;
-    }
-
-    public void setCarNumber(String carNumber) {
-        this.carNumber = carNumber;
-    }
+    public void setBusy(boolean busy){this.Busy=busy;}
 }

@@ -17,7 +17,7 @@
         android:layout_marginLeft="8dp">
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/CodeModel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -25,7 +25,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editText11"
+            android:id="@+id/ManufactorName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -33,15 +33,22 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editText10"
+            android:id="@+id/ModelName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="אנא הכנס שם דגם"
             android:inputType="textPersonName" />
 
+        <Spinner
+            android:id="@+id/GearKind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dialog" />
+
         <EditText
-            android:id="@+id/editText9"
+            android:id="@+id/EngineVolume"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -49,15 +56,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editText8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="אנא הכנס סוג תיבת הילוכים"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/NumOfTravel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -69,5 +68,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="שמור" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

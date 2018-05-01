@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
 import com.example.yyblumerandeiheller.takeandgo.model.datasource.ListsDataSource;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
@@ -15,8 +16,6 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
 public class AddCarModel extends AppCompatActivity
 {
-
-    ListsDataSource listsDataSource = new ListsDataSource();
     EditText CompanyName, ModelName, ModelCode, EngineVolume, NumOfSeats;
     Spinner Gearbox, CarKind;
 
@@ -41,7 +40,7 @@ public class AddCarModel extends AppCompatActivity
     public void BtnAddCarModel(View view)
     {
         CarModel carModel=new CarModel(CompanyName.getText().toString(), ModelName.getText().toString(), ModelCode.getText().toString(), Integer.parseInt(EngineVolume.getText().toString()), ConstantsAndEnums.gearboxMode.valueOf(Gearbox.getSelectedItem().toString()), Integer.parseInt(NumOfSeats.getText().toString()), ConstantsAndEnums.carKind.valueOf(CarKind.getSelectedItem().toString()));
-        listsDataSource.addCarModel(carModel);
+        FactoryMethod.getDataSource().addCarModel(carModel);
     }
 }
 

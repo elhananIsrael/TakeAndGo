@@ -7,13 +7,12 @@ import android.widget.EditText;
 
 
 import com.example.yyblumerandeiheller.takeandgo.R;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
 import com.example.yyblumerandeiheller.takeandgo.model.datasource.ListsDataSource;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
 
     public class AddCustomer extends AppCompatActivity
     {
-
-        ListsDataSource listsDataSource = new ListsDataSource();
         EditText Id,FirstName,LastName, PhoneNum, Email, CreditCardNum;
 
         @Override
@@ -41,6 +40,6 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
                     Email.toString(),
                     CreditCardNum.toString());
 
-            listsDataSource.addCustomer( customer );
+            FactoryMethod.getDataSource().addCustomer(customer);
         }
 }

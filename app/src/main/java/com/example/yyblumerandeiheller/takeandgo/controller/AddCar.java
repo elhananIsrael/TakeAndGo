@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
 import com.example.yyblumerandeiheller.takeandgo.model.datasource.ListsDataSource;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
@@ -23,8 +24,6 @@ public class AddCar extends AppCompatActivity {
 
     Spinner Model;
     EditText ProductionDate, Mileage, LicenseNumber, HomeBranch, AverageCostPerDay ;
-
-    ListsDataSource listsDataSource = new ListsDataSource();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,7 @@ public class AddCar extends AppCompatActivity {
         HomeBranch = ((EditText) findViewById( R.id.HomeBranch));
         AverageCostPerDay = ((EditText) findViewById( R.id.AverageCostPerDay));
 
-        Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, listsDataSource.allCarModels()));
+        Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, FactoryMethod.getDataSource().allCarModels()));
 
     }
 
@@ -52,7 +51,9 @@ public class AddCar extends AppCompatActivity {
             CarModel SelectedCarModel=(CarModel)((Spinner)findViewById(R.id.Model)).getSelectedItem();
             Car car;
             car = new Car(SelectedCarModel, new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(ProductionDate.getText().toString()), LicenseNumber.getText().toString(), Integer.parseInt(Mileage.getText().toString()), HomeBranch.getText().toString(), Integer.parseInt(AverageCostPerDay.getText().toString()));
-            listsDataSource.addCar(car);
-        }catch (Exception ex){};
+
+            FactoryMethod.getDataSource().addCar(car);
+        }
+        catch(Exception ex){};
     }
 }

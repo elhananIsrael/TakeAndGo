@@ -32,13 +32,15 @@ public class AddCar extends AppCompatActivity {
         setContentView(R.layout.activity_add_car);
 
         //not forget factory method
-
-        Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, listsDataSource.allCarModels()));
+        Model=(Spinner) findViewById(R.id.Model);
         ProductionDate = ((EditText) findViewById( R.id.ProductionDate ));
         Mileage = ((EditText) findViewById( R.id.Mileage ));
         LicenseNumber = ((EditText) findViewById( R.id.LicenseNumber ));
         HomeBranch = ((EditText) findViewById( R.id.HomeBranch));
         AverageCostPerDay = ((EditText) findViewById( R.id.AverageCostPerDay));
+
+        Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, listsDataSource.allCarModels()));
+
     }
 
 

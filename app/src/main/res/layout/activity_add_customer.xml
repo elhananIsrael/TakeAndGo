@@ -17,16 +17,15 @@
         android:layout_marginLeft="8dp">
 
         <EditText
-            android:id="@+id/id"
+            android:id="@+id/Id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
             android:hint="Enter ID"
-            />
+            android:inputType="number" />
 
         <EditText
-            android:id="@+id/firstName"
+            android:id="@+id/FirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -34,7 +33,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/lastName"
+            android:id="@+id/LastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -42,23 +41,23 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/phoneNum"
+            android:id="@+id/PhoneNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter Phone Number"
-            android:inputType="textPersonName" />
+            android:inputType="phone" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter Email"
-            android:inputType="textPersonName" />
+            android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/creditCardNum"
+            android:id="@+id/CreditCardNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

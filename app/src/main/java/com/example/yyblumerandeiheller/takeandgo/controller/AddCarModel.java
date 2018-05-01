@@ -13,31 +13,34 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
 
-public class AddCarModel extends AppCompatActivity {
+public class AddCarModel extends AppCompatActivity
+{
 
     ListsDataSource listsDataSource = new ListsDataSource();
-    EditText CodeModel,ManufactorName,ModelName, EngineVolume, NumOfTravel;
-    Spinner GearKind;
+    EditText CompanyName, ModelName, ModelCode, EngineVolume, NumOfSeats;
+    Spinner Gearbox, CarKind;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_car_model);
 
-        CodeModel = ((EditText) findViewById( R.id.CodeModel ));
-        ManufactorName = ((EditText) findViewById( R.id.ManufactorName ));
+        CompanyName = ((EditText) findViewById( R.id.CompanyName ));
         ModelName = ((EditText) findViewById( R.id.ModelName ));
+        ModelCode = ((EditText) findViewById( R.id.ModelCode ));
         EngineVolume = ((EditText) findViewById( R.id.EngineVolume ));
-        GearKind = (Spinner) findViewById(R.id.GearKind);
-        NumOfTravel = ((EditText) findViewById( R.id.NumOfTravel ));
+        Gearbox = (Spinner) findViewById(R.id.Gearbox);
+        NumOfSeats = ((EditText) findViewById( R.id.NumOfSeats ));
+        CarKind=(Spinner) findViewById(R.id.CarKind);
 
-        GearKind.setAdapter(new ArrayAdapter<ConstantsAndEnums.gearboxMode>(this, android.R.layout.simple_spinner_item, ConstantsAndEnums.gearboxMode.values()));
-
+        Gearbox.setAdapter(new ArrayAdapter<ConstantsAndEnums.gearboxMode>(this, android.R.layout.simple_spinner_item, ConstantsAndEnums.gearboxMode.values()));
+        CarKind.setAdapter(new ArrayAdapter<ConstantsAndEnums.carKind>(this, android.R.layout.simple_spinner_item, ConstantsAndEnums.carKind.values()));
     }
 
     public void BtnAddCarModel(View view)
     {
-        CarModel carModel=new CarModel(CodeModel.getText().toString(), ManufactorName.getText().toString(), ModelName.getText().toString(), Integer.parseInt(EngineVolume.getText().toString()), ConstantsAndEnums.gearboxMode.valueOf(GearKind.getSelectedItem().toString()), Integer.parseInt(NumOfTravel.getText().toString()));
+        CarModel carModel=new CarModel(CompanyName.getText().toString(), ModelName.getText().toString(), ModelCode.getText().toString(), Integer.parseInt(EngineVolume.getText().toString()), ConstantsAndEnums.gearboxMode.valueOf(Gearbox.getSelectedItem().toString()), Integer.parseInt(NumOfSeats.getText().toString()), ConstantsAndEnums.carKind.valueOf(CarKind.getSelectedItem().toString()));
         listsDataSource.addCarModel(carModel);
     }
 }

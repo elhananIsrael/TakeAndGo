@@ -7,30 +7,39 @@ import android.widget.EditText;
 
 
 import com.example.yyblumerandeiheller.takeandgo.R;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
 import com.example.yyblumerandeiheller.takeandgo.model.datasource.ListsDataSource;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
 
-    public class AddCustomer extends AppCompatActivity {
-        ListsDataSource listsDataSource = new ListsDataSource();
-        EditText id,firstName,lastName, phoneNum, email, creditCardNum;
+    public class AddCustomer extends AppCompatActivity
+    {
+        EditText Id,FirstName,LastName, PhoneNum, Email, CreditCardNum;
 
         @Override
-        protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState)
+        {
             super.onCreate( savedInstanceState );
             setContentView( R.layout.activity_add_customer );
 
-            id = ((EditText) findViewById( R.id.id ));
-            firstName = ((EditText) findViewById( R.id.firstName ));
-            lastName = ((EditText) findViewById( R.id.lastName ));
+            Id = ((EditText) findViewById( R.id.Id ));
+            FirstName = ((EditText) findViewById( R.id.FirstName ));
+            LastName = ((EditText) findViewById( R.id.LastName ));
+            PhoneNum = ((EditText) findViewById( R.id.PhoneNum ));
+            Email = ((EditText) findViewById( R.id.Email ));
+            LastName = ((EditText) findViewById( R.id.LastName ));
 
         }
 
-        public void btnAddUserClick(View view) {
+        public void btnAddUserClick(View view)
+        {
             Customer customer = new Customer(
-                    id.getText().toString(),
-                    firstName.getText().toString(),
-                    lastName.getText().toString(),phoneNum.toString(), email.toString(), creditCardNum.toString());
+                    Id.getText().toString(),
+                    FirstName.getText().toString(),
+                    LastName.getText().toString(),
+                    PhoneNum.toString(),
+                    Email.toString(),
+                    CreditCardNum.toString());
 
-            listsDataSource.addCustomer( customer );
+            FactoryMethod.getDataSource().addCustomer(customer);
         }
 }

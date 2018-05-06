@@ -63,7 +63,7 @@ public class ListsDataSource implements DataSource {
     @Override
     public Car isExistsCar(String carNumber) {
         for( Car car : cars)
-            if (car.getCarNumber().equals( carNumber ))
+            if (car.getLicenseNumber().equals( carNumber ))
                 return  car;
         return null;
     }

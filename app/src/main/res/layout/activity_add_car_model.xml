@@ -17,15 +17,7 @@
         android:layout_marginLeft="8dp">
 
         <EditText
-            android:id="@+id/editText6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="אנא הכנס קוד דגם"
-            android:inputType="textPersonName" />
-
-        <EditText
-            android:id="@+id/editText11"
+            android:id="@+id/CompanyName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -33,7 +25,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editText10"
+            android:id="@+id/ModelName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -41,33 +33,60 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editText9"
+            android:id="@+id/ModelCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="אנא הכנס קוד דגם"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/EngineVolume"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="אנא הכנס נפח מנוע"
             android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/editText8"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="אנא הכנס סוג תיבת הילוכים"
-            android:inputType="textPersonName" />
+            android:text="אנא בחר סוג תיבת הילוכים"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/Gearbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/NumOfSeats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="אנא הכנס מספר מקומות ישיבה"
             android:inputType="textPersonName" />
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="אנא בחר סוג רכב" />
+
+        <Spinner
+            android:id="@+id/CarKind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="שמור" />
+
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

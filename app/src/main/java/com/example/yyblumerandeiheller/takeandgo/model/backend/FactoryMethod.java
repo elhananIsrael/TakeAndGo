@@ -3,11 +3,10 @@ package com.example.yyblumerandeiheller.takeandgo.model.backend;
 import com.example.yyblumerandeiheller.takeandgo.model.datasource.ListsDataSource;
 
 
-public class FactoryMethod {
+public class FactoryMethod
+{
 
     private static final FactoryMethod ourInstance = new FactoryMethod();
-
-
 
     public static FactoryMethod getInstance() {
         return ourInstance;

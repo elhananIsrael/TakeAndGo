@@ -1,37 +1,40 @@
 package com.example.yyblumerandeiheller.takeandgo.model.entities;
 
 public class Branch {
-    protected String address;
-    protected int parkingSpacesNum;
-    protected String branchId;
+    protected String BranchAddress;
+    protected int CapacityOfCar;
+    protected String BranchNum;
+    protected String AdministratorName;
 
-    public Branch(String address, int parkingSpacesNum, String branchId) {
-        this.address = address;
-        this.parkingSpacesNum = parkingSpacesNum;
-        this.branchId = branchId;
+    public Branch(String address, int capacityOfCar, String branchNum, String administratorName)
+    {
+        this.BranchAddress = address;
+        this.CapacityOfCar = capacityOfCar;
+        this.BranchNum = branchNum;
+        this.AdministratorName=administratorName;
     }
 
     public String getAddress() {
-        return address;
+        return BranchAddress;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.BranchAddress = address;
     }
 
-    public int getParkingSpacesNum() {
-        return parkingSpacesNum;
+    public int getCapacityOfCar() {
+        return CapacityOfCar;
     }
 
     public void setParkingSpacesNum(int parkingSpacesNum) {
-        this.parkingSpacesNum = parkingSpacesNum;
+        this.CapacityOfCar = parkingSpacesNum;
     }
 
     public String getBranchId() {
-        return branchId;
+        return BranchNum;
     }
 
-    public void setBranchId(String branchId) {
-        this.branchId = branchId;
+    public void setBranchId(String branchNum) {
+        this.BranchNum = branchNum;
     }
 }

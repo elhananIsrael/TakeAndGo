@@ -1,7 +1,7 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -9,7 +9,6 @@ import android.widget.Spinner;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
-import com.example.yyblumerandeiheller.takeandgo.model.datasource.ListsDataSource;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
@@ -39,7 +38,15 @@ public class AddCarModel extends AppCompatActivity
 
     public void BtnAddCarModel(View view)
     {
-        CarModel carModel=new CarModel(CompanyName.getText().toString(), ModelName.getText().toString(), ModelCode.getText().toString(), Integer.parseInt(EngineVolume.getText().toString()), ConstantsAndEnums.gearboxMode.valueOf(Gearbox.getSelectedItem().toString()), Integer.parseInt(NumOfSeats.getText().toString()), ConstantsAndEnums.carKind.valueOf(CarKind.getSelectedItem().toString()));
+        CarModel carModel=new CarModel(
+                CompanyName.getText().toString(),
+                ModelName.getText().toString(),
+                ModelCode.getText().toString(),
+                Integer.parseInt(EngineVolume.getText().toString()),
+                ConstantsAndEnums.gearboxMode.valueOf(Gearbox.getSelectedItem().toString()),
+                Integer.parseInt(NumOfSeats.getText().toString()),
+                ConstantsAndEnums.carKind.valueOf(CarKind.getSelectedItem().toString())    );
+
         FactoryMethod.getDataSource().addCarModel(carModel);
     }
 }

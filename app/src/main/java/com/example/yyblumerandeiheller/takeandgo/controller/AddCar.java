@@ -2,9 +2,9 @@ package com.example.yyblumerandeiheller.takeandgo.controller;
 
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -12,10 +12,8 @@ import android.widget.Spinner;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
-import com.example.yyblumerandeiheller.takeandgo.model.datasource.ListsDataSource;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
-import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
 import java.util.Locale;
 
@@ -49,8 +47,13 @@ public class AddCar extends AppCompatActivity {
         try
         {
             CarModel SelectedCarModel=(CarModel)((Spinner)findViewById(R.id.Model)).getSelectedItem();
-            Car car;
-            car = new Car(SelectedCarModel, new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(ProductionDate.getText().toString()), LicenseNumber.getText().toString(), Integer.parseInt(Mileage.getText().toString()), HomeBranch.getText().toString(), Integer.parseInt(AverageCostPerDay.getText().toString()));
+            Car car = new Car(
+                    SelectedCarModel,
+                    new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(ProductionDate.getText().toString()),
+                    LicenseNumber.getText().toString(),
+                    Integer.parseInt(Mileage.getText().toString()),
+                    HomeBranch.getText().toString(),
+                    Integer.parseInt(AverageCostPerDay.getText().toString())  );
 
             FactoryMethod.getDataSource().addCar(car);
         }

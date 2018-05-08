@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
-import com.example.yyblumerandeiheller.takeandgo.model.backend.DataSource;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
 
@@ -14,16 +13,13 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
 
     public class AddCustomer extends AppCompatActivity {
 
-        DataSource ds;
-       // ListsDataSource listsDataSource = new ListsDataSource();
+
         EditText id,firstName,lastName, phoneNum, email, creditCardNum;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate( savedInstanceState );
             setContentView( R.layout.activity_add_customer );
-
-            ds = FactoryMethod.getDataSource();
 
             id = ((EditText) findViewById( R.id.Id ));
             firstName = ((EditText) findViewById( R.id.FirstName ));
@@ -41,9 +37,8 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
                     lastName.getText().toString(),
                     phoneNum.getText().toString(),
                     email.getText().toString(),
-                    creditCardNum.getText().toString());
+                    creditCardNum.getText().toString()   );
 
-           // listsDataSource.addCustomer( customer );
-            ds.addCustomer( customer );
+            FactoryMethod.getDataSource().addCustomer( customer );
         }
 }

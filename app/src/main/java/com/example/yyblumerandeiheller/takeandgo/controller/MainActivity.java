@@ -7,8 +7,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
-import com.example.yyblumerandeiheller.takeandgo.model.backend.*;
-import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
 
@@ -17,16 +15,11 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
     public class MainActivity extends AppCompatActivity {
 
-        DataSource ds;
-
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
-            ds = FactoryMethod.getDataSource();
-ds.addCustomer(new Customer("xcxx","cxxc","ffff","cxcxcx","cxcxc", "ccxcxcx"));
         }
 
         public void addCustomerBtnClick(View view) {

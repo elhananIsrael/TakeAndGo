@@ -35,5 +35,7 @@ public class AddBranch extends AppCompatActivity
                 AdminName.getText().toString()  );
 
         FactoryMethod.getDataSource().addBranch(branch);
+
+        this.finish();
     }
 }

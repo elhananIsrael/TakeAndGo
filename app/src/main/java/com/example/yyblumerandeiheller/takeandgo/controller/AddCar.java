@@ -56,6 +56,8 @@ public class AddCar extends AppCompatActivity {
                     Integer.parseInt(AverageCostPerDay.getText().toString())  );
 
             FactoryMethod.getDataSource().addCar(car);
+
+            this.finish();
         }
         catch(Exception ex){};
     }

@@ -40,5 +40,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
                     creditCardNum.getText().toString()   );
 
             FactoryMethod.getDataSource().addCustomer( customer );
+
+            this.finish();
         }
 }

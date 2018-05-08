@@ -48,6 +48,8 @@ public class AddCarModel extends AppCompatActivity
                 ConstantsAndEnums.carKind.valueOf(CarKind.getSelectedItem().toString())    );
 
         FactoryMethod.getDataSource().addCarModel(carModel);
+
+        this.finish();
     }
 }
 

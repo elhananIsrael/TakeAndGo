@@ -25,12 +25,12 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
 
             ds = FactoryMethod.getDataSource();
 
-            id = ((EditText) findViewById( R.id.id ));
-            firstName = ((EditText) findViewById( R.id.firstName ));
-            lastName = ((EditText) findViewById( R.id.lastName ));
-            phoneNum = ((EditText) findViewById( R.id.phoneNum ));
-            email = ((EditText) findViewById( R.id.email ));
-            creditCardNum = ((EditText) findViewById( R.id.creditCardNum ));
+            id = ((EditText) findViewById( R.id.Id ));
+            firstName = ((EditText) findViewById( R.id.FirstName ));
+            lastName = ((EditText) findViewById( R.id.LastName ));
+            phoneNum = ((EditText) findViewById( R.id.PhoneNum ));
+            email = ((EditText) findViewById( R.id.Email ));
+            creditCardNum = ((EditText) findViewById( R.id.CreditCardNum ));
 
         }
 

@@ -49,6 +49,7 @@
             android:id="@+id/Save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="BtnAddBranchClick"
             android:text="שמור" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

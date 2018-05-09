@@ -31,6 +31,8 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
         }
 
         public void btnAddUserClick(View view) {
+            try
+            {
             Customer customer = new Customer(
                     id.getText().toString(),
                     firstName.getText().toString(),
@@ -42,5 +44,8 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
             FactoryMethod.getDataSource().addCustomer( customer );
 
             this.finish();
+            throw new Exception("Congratulations! Car with ID number: " + id.getText().toString()+ "added to the database. \n" );
+            }
+            catch(Exception ex){};
         }
 }

@@ -28,6 +28,8 @@ public class AddBranch extends AppCompatActivity
 
     public void BtnAddBranchClick(View view)
     {
+        try
+        {
         Branch branch=new Branch(
                 BranchAddress.getText().toString(),
                 Integer.parseInt(Capacity.getText().toString()),
@@ -37,5 +39,7 @@ public class AddBranch extends AppCompatActivity
         FactoryMethod.getDataSource().addBranch(branch);
 
         this.finish();
+        }
+        catch(Exception ex){};
     }
 }

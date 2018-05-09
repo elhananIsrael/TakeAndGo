@@ -17,9 +17,14 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
+            try {
+
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
+            } catch (Exception e) {
+                Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
+            }
         }
 
         public void addCustomerBtnClick(View view) {

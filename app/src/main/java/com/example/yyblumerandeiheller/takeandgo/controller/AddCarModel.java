@@ -38,6 +38,9 @@ public class AddCarModel extends AppCompatActivity
 
     public void BtnAddCarModel(View view)
     {
+
+        try
+        {
         CarModel carModel=new CarModel(
                 CompanyName.getText().toString(),
                 ModelName.getText().toString(),
@@ -50,6 +53,8 @@ public class AddCarModel extends AppCompatActivity
         FactoryMethod.getDataSource().addCarModel(carModel);
 
         this.finish();
+        }
+        catch(Exception ex){};
     }
 }
 

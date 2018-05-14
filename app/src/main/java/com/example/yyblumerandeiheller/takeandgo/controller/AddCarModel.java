@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
@@ -53,8 +54,12 @@ public class AddCarModel extends AppCompatActivity
         FactoryMethod.getDataSource().addCarModel(carModel);
 
         this.finish();
+            throw new Exception("Congratulations! Car Model with code: " + ModelCode.getText().toString()+ " added to the database. \n" );
+
         }
-        catch(Exception ex){};
+        catch(Exception ex){
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+        };
     }
 }
 

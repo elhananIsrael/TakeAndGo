@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:onClick="addCustomerBtnClick"
-            android:text="Add Customer"
+            android:text="הוסף לקוח חדש"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="87dp" />
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:onClick="addBranchBtnClick"
-            android:text="Add Branch"
+            android:text="הוסף סניף חדש"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:onClick="addCarBtnClick"
-            android:text="Add Car"
+            android:text="הוסף רכב חדש"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="181dp" />
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:onClick="addCarModelBtnClick"
-            android:text="Add Car Model"
+            android:text="הוסף דגם רכב חדש"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="181dp" />

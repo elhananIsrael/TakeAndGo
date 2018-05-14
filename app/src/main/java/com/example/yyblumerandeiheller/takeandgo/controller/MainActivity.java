@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
@@ -24,6 +25,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
             } catch (Exception e) {
                 Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -32,7 +34,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
                 startActivity( new Intent( MainActivity.this,AddCustomer.class ) );
             } catch (Exception e) {
                 Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
-
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -41,6 +43,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
                 startActivity( new Intent( MainActivity.this,AddBranch.class ) );
             } catch (Exception e) {
                 Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         }
@@ -50,7 +53,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
                 startActivity( new Intent( MainActivity.this,AddCar.class ) );
             } catch (Exception e) {
                 Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
-
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -60,7 +63,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
                 startActivity( new Intent( MainActivity.this,AddCarModel.class ) );
             } catch (Exception e) {
                 Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
-
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
 

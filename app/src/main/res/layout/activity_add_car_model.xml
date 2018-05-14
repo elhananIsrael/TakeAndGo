@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="BtnAddCarModel"
-            android:text="שמור" />
+            android:text="שמור דגם רכב" />
 
 
     </LinearLayout>

@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter ID"
+            android:hint="אנא הכנס תעודת זהות"
             android:inputType="number" />
 
         <EditText
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter First Name"
+            android:hint="אנא הכנס שם פרטי"
             android:inputType="textPersonName" />
 
         <EditText
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter Last Name"
+            android:hint="אנא הכנס שם משפחה"
             android:inputType="textPersonName" />
 
         <EditText
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter Phone Number"
+            android:hint="אנא הכנס מספר פלאפון"
             android:inputType="phone" />
 
         <EditText
@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter Email"
+            android:hint="אנא הכנס כתובת דוא''ל"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter Credit Card Number"
+            android:hint="אנא הכנס מספר כרטיס אשראי"
             android:inputType="textPersonName" />
 
         <Button
@@ -69,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="btnAddUserClick"
-            android:text="Add" />
+            android:text="שמור לקוח" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

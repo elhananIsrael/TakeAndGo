@@ -50,6 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="BtnAddBranchClick"
-            android:text="שמור" />
+            android:text="שמור סניף" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

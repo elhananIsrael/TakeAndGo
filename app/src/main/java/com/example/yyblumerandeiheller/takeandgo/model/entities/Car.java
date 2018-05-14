@@ -1,6 +1,5 @@
 package com.example.yyblumerandeiheller.takeandgo.model.entities;
 
-import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums.carKind;
 import java.util.Date;
 
 

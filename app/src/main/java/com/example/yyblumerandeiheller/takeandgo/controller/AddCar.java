@@ -3,12 +3,15 @@ package com.example.yyblumerandeiheller.takeandgo.controller;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
@@ -20,6 +23,7 @@ import java.util.Locale;
 
 public class AddCar extends AppCompatActivity {
 
+    CalendarView calendarView;
     Spinner Model;
     EditText ProductionDate, Mileage, LicenseNumber, HomeBranch, AverageCostPerDay ;
 
@@ -35,6 +39,15 @@ public class AddCar extends AppCompatActivity {
         LicenseNumber = ((EditText) findViewById( R.id.LicenseNumber ));
         HomeBranch = ((EditText) findViewById( R.id.HomeBranch));
         AverageCostPerDay = ((EditText) findViewById( R.id.AverageCostPerDay));
+        calendarView =( (CalendarView)   findViewById( R.id.calendarView));
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                Toast.makeText(AddCar.this, "נבחר התאריך: " + dayOfMonth + "/" + (month+1) + "/" + year  , Toast.LENGTH_LONG).show();
+                ProductionDate.setText(dayOfMonth + "/" + (month+1) + "/" + year);
+            }
+        });
 
         Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, FactoryMethod.getDataSource().allCarModels()));
 
@@ -58,7 +71,13 @@ public class AddCar extends AppCompatActivity {
             FactoryMethod.getDataSource().addCar(car);
 
             this.finish();
+            throw new Exception("Congratulations! Car number: " + LicenseNumber.getText().toString()+ " added to the database. \n" );
+
         }
-        catch(Exception ex){};
+        catch(Exception ex){
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+        };
     }
+
 }
+

@@ -1,9 +1,12 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
@@ -39,7 +42,12 @@ public class AddBranch extends AppCompatActivity
         FactoryMethod.getDataSource().addBranch(branch);
 
         this.finish();
+
+        throw new Exception("Congratulations! Branch number: " + BranchNum.getText().toString()+ " added to the database. \n" );
+
         }
-        catch(Exception ex){};
+        catch(Exception ex){
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+        };
     }
 }

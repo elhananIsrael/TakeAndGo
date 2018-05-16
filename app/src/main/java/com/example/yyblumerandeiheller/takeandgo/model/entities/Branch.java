@@ -3,10 +3,10 @@ package com.example.yyblumerandeiheller.takeandgo.model.entities;
 public class Branch {
     protected String BranchAddress;
     protected int CapacityOfCar;
-    protected String BranchNum;
+    protected int BranchNum;
     protected String AdministratorName;
 
-    public Branch(String address, int capacityOfCar, String branchNum, String administratorName)
+    public Branch(String address, int capacityOfCar, int branchNum, String administratorName)
     {
         this.BranchAddress = address;
         this.CapacityOfCar = capacityOfCar;
@@ -30,11 +30,11 @@ public class Branch {
         this.CapacityOfCar = parkingSpacesNum;
     }
 
-    public String getBranchId() {
+    public int getBranchId() {
         return BranchNum;
     }
 
-    public void setBranchId(String branchNum) {
+    public void setBranchId(int branchNum) {
         this.BranchNum = branchNum;
     }
 }

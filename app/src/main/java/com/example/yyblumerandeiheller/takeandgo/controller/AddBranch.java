@@ -36,8 +36,8 @@ public class AddBranch extends AppCompatActivity
         Branch branch=new Branch(
                 BranchAddress.getText().toString(),
                 Integer.parseInt(Capacity.getText().toString()),
-                Integer.parseInt(BranchNum.getText().toString()),
-                AdminName.getText().toString()  );
+                BranchNum.getText().toString(),
+                AdminName.getText().toString());
 
         FactoryMethod.getDataSource().addBranch(branch);
 

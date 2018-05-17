@@ -59,9 +59,8 @@ public class AddCar extends AppCompatActivity {
     {
         try
         {
-            CarModel SelectedCarModel=(CarModel)((Spinner)findViewById(R.id.Model)).getSelectedItem();
             Car car = new Car(
-                    SelectedCarModel,
+                    Model.getSelectedItem().toString(),
                     new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(ProductionDate.getText().toString()),
                     LicenseNumber.getText().toString(),
                     Integer.parseInt(Mileage.getText().toString()),

@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Car
 {
-    protected CarModel Model;
+    protected String Model;
     protected Date ProductionDate;
     protected int Mileage;
     protected String LicenseNumber;
@@ -14,7 +14,7 @@ public class Car
     protected boolean Busy;
 
 
-    public Car(CarModel model, Date productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
+    public Car(String model, Date productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
     {
         this.Model=model;
         this.ProductionDate=productionDate;
@@ -26,11 +26,11 @@ public class Car
     }
 
 
-    public CarModel getModel() {
+    public String getModel() {
         return Model;
     }
 
-    public void setCarModel(CarModel carModel) {
+    public void setCarModel(String carModel) {
         this.Model = carModel;
     }
 

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.backendPHP;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 
@@ -67,10 +68,13 @@ public class AddCar extends AppCompatActivity {
                     HomeBranch.getText().toString(),
                     Integer.parseInt(AverageCostPerDay.getText().toString())  );
 
-            FactoryMethod.getDataSource().addCar(car);
+            backendPHP bphp=new backendPHP();
+            bphp.addCar(car);
+
+            //FactoryMethod.getDataSource().addCar(car);
 
             this.finish();
-            throw new Exception("Congratulations! Car number: " + LicenseNumber.getText().toString()+ " added to the database. \n" );
+            //throw new Exception("Congratulations! Car number: " + LicenseNumber.getText().toString()+ " added to the database. \n" );
 
         }
         catch(Exception ex){

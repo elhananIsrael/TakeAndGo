@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.backendPHP;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Branch;
 
 public class AddBranch extends AppCompatActivity
@@ -39,11 +40,14 @@ public class AddBranch extends AppCompatActivity
                 BranchNum.getText().toString(),
                 AdminName.getText().toString());
 
-        FactoryMethod.getDataSource().addBranch(branch);
+            backendPHP bphp=new backendPHP();
+            bphp.addBranch(branch);
+
+        //FactoryMethod.getDataSource().addBranch(branch);
 
         this.finish();
 
-        throw new Exception("Congratulations! Branch number: " + BranchNum.getText().toString()+ " added to the database. \n" );
+        //throw new Exception("Congratulations! Branch number: " + BranchNum.getText().toString()+ " added to the database. \n" );
 
         }
         catch(Exception ex){

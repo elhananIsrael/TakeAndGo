@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.backendPHP;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
 
 import static android.app.PendingIntent.getActivity;
@@ -58,13 +59,17 @@ public class AddCustomer extends AppCompatActivity {
                     email.getText().toString(),
                     creditCardNum.getText().toString()   );
 
-            FactoryMethod.getDataSource().addCustomer( customer );
+            //FactoryMethod.getDataSource().addCustomer( customer );
+                backendPHP bphp=new backendPHP();
+                bphp.addCustomer(customer);
+
+
                 FragmentManager fm = getSupportFragmentManager();
 
             this.finish();
 
             //new DialogFragment().show(fm ,"Congratulations! Car with ID number: " + id.getText().toString()+ "added to the database. \n");
-            throw new Exception("Congratulations! Car with ID number: " + id.getText().toString()+ " added to the database. \n" );
+            //throw new Exception("Congratulations! Car with ID number: " + id.getText().toString()+ " added to the database. \n" );
             }
             catch(Exception ex){
                 Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();

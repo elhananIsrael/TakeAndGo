@@ -37,4 +37,8 @@ public class Branch {
     public void setBranchId(String branchNum) {
         this.BranchNum = branchNum;
     }
+
+    public String getAdministratorName() { return AdministratorName; }
+
+    public void setAdministratorName(String administratorName){this.AdministratorName=administratorName;}
 }

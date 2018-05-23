@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.backendPHP;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
@@ -51,10 +52,14 @@ public class AddCarModel extends AppCompatActivity
                 Integer.parseInt(NumOfSeats.getText().toString()),
                 ConstantsAndEnums.carKind.valueOf(CarKind.getSelectedItem().toString())    );
 
-        FactoryMethod.getDataSource().addCarModel(carModel);
+
+            backendPHP bphp=new backendPHP();
+            bphp.addCarModel(carModel);
+
+            //FactoryMethod.getDataSource().addCarModel(carModel);
 
         this.finish();
-            throw new Exception("Congratulations! Car Model with code: " + ModelCode.getText().toString()+ " added to the database. \n" );
+            //throw new Exception("Congratulations! Car Model with code: " + ModelCode.getText().toString()+ " added to the database. \n" );
 
         }
         catch(Exception ex){

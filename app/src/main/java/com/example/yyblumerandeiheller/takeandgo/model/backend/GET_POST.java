@@ -12,6 +12,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 
+
+
 public class GET_POST
 {
     public static String GET(String url) throws Exception

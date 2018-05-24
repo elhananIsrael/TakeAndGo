@@ -20,6 +20,16 @@ public class MySQL_DB_manager implements DataSource {
         private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/httpdocs/TakeAndGo/carsRent/carsRent/";
         protected ArrayList<Car> cars = new ArrayList<>();
 
+    public void printLog(String message)
+    {
+        Log.d(this.getClass().getName(),"\n"+message);
+    }
+    public void printLog(Exception message)
+    {
+        Log.d(this.getClass().getName(),"Exception-->\n"+message);
+    }
+
+
 
         @Override
         public void addCustomer(Customer customer)

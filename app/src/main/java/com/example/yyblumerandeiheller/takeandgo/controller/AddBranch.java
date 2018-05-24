@@ -1,5 +1,6 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,14 +34,37 @@ public class AddBranch extends AppCompatActivity
     {
         try
         {
-        Branch branch=new Branch(
-                BranchAddress.getText().toString(),
-                Integer.parseInt(Capacity.getText().toString()),
-                BranchNum.getText().toString(),
-                AdminName.getText().toString());
 
-            MySQL_DB_manager SQL_DB=new MySQL_DB_manager();
-            FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addBranch(branch);
+            new AsyncTask<Void, Void, Void>() {
+
+                Branch branch=new Branch(
+                        BranchAddress.getText().toString(),
+                        Integer.parseInt(Capacity.getText().toString()),
+                        BranchNum.getText().toString(),
+                        AdminName.getText().toString());
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    super.onPostExecute( aVoid );
+                    Toast.makeText( getBaseContext(), "Car Added OK", Toast.LENGTH_SHORT ).show();
+                }
+
+
+               /* @Override
+                    protected void onPostExecute(Long idResult) {
+                    super.onPostExecute(Long idResult);
+                    if (idResult > 0)
+                        Toast.makeText(getBaseContext(), "insert id: " + idResult, Toast.LENGTH_LONG).show();     }*/
+
+                        @Override
+                protected Void doInBackground(Void... voids) {
+                            FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addBranch(branch);
+                            publishProgress( null );
+
+                            return null;}
+            }.execute();
+
+
+
 
 
         this.finish();

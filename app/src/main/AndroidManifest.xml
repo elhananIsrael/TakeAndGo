@@ -3,6 +3,7 @@
     package="com.example.yyblumerandeiheller.takeandgo">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
+
     <application
 
         android:allowBackup="true"

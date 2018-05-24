@@ -40,55 +40,55 @@ public class ConstantsAndEnums {
     /////////////////////////////////////////
 
     public static class CustomerConst {
-        public static final String ID = "_id";
-        public static final String FIRST_NAME = "firstName";
-        public static final String LAST_NAME = "lastName";
-        public static final String PHONE_NUM = "phoneNum";
-        public static final String EMAIL = "email";
-        public static final String CREDIT_CARD_NUM = "creditCardNum";    }
+        public static final String ID = "Id";
+        public static final String FIRST_NAME = "FirstName";
+        public static final String LAST_NAME = "LastName";
+        public static final String PHONE_NUM = "PhoneNum";
+        public static final String EMAIL = "Email";
+        public static final String CREDIT_CARD_NUM = "CreditCardNum";    }
 
 
     public static class CarConst {
-        public static final String MODEL_CODE = "modelCode";
-        public static final String PRODUCTION_DATE = "productionDate";
-        public static final String MILEAGE = "mileage";
-        public static final String LICENSE_NUMBER = "_licenseNumber";
-        public static final String HOME_BRANCH = "homeBranch";
-        public static final String AVARAGE_COST_PER_DAY = "averageCostPerDay";
-        public static final String BUSY = "busy"; }
+        public static final String MODEL_CODE = "ModelCode";
+        public static final String PRODUCTION_DATE = "ProductionDate";
+        public static final String MILEAGE = "Mileage";
+        public static final String LICENSE_NUMBER = "LicenseNumber";
+        public static final String HOME_BRANCH = "HomeBranch";
+        public static final String AVARAGE_COST_PER_DAY = "AverageCostPerDay";
+        public static final String BUSY = "Busy"; }
 
 
 
     public static class BranchConst {
-        public static final String BRANCH_ADDRESS = "branchAddress";
-        public static final String CAPACITY_OF_CAR = "capacityOfCar";
-        public static final String BRANCH_NUM = "_branchNum";
-        public static final String ADMINISTRATOR_NAME = "administratorName"; }
+        public static final String BRANCH_ADDRESS = "BranchAddress";
+        public static final String CAPACITY_OF_CAR = "CapacityOfCar";
+        public static final String BRANCH_NUM = "BranchNum";
+        public static final String ADMINISTRATOR_NAME = "AdministratorName"; }
 
 
     public static class CarModelConst {
-        public static final String COMPANY_NAME = "companyName";
-        public static final String MODEL_NAME = "modelName";
-        public static final String MODEL_CODE = "_modelCode";
-        public static final String ENGINE_VOLUME = "engineVolume";
-        public static final String GEARBOX = "gearbox";
-        public static final String NUM_OF_SEATS = "numOfSeats";
-        public static final String CAR_KIND = "carKind"; }
+        public static final String COMPANY_NAME = "CompanyName";
+        public static final String MODEL_NAME = "ModelName";
+        public static final String MODEL_CODE = "ModelCode";
+        public static final String ENGINE_VOLUME = "EngineVolume";
+        public static final String GEARBOX = "Gearbox";
+        public static final String NUM_OF_SEATS = "NumOfSeats";
+        public static final String CAR_KIND = "CarKind"; }
 
 
 
     public static class OrderConst {
-        public static final String CUSTOMER_NUM = "customerNum";
-        public static final String MODE_OF_ORDER = "modeOfOrder";
-        public static final String CAR_NUMBER = "carNumber";
-        public static final String RENT_START_DATE = "rentStartDate";
-        public static final String RENT_END_DATE = "rentEndDate";
-        public static final String KILOMETERES_AT_START = "kilometresAtStart";
-        public static final String KILOMETERES_AT_END = "kilometresAtEnd";
-        public static final String IS_INSERT_DELEK = "isInsertDelek";
-        public static final String HOW_MUCH_DELEK_INSERT = "howMuchDelekInsert";
-        public static final String HOW_MUCH_NEED_PAY = "howMuchNeedPay";
-        public static final String ORDER_NUM = "_orderNum"; }
+        public static final String CUSTOMER_NUM = "CustomerNum";
+        public static final String MODE_OF_ORDER = "ModeOfOrder";
+        public static final String CAR_NUMBER = "CarNumber";
+        public static final String RENT_START_DATE = "RentStartDate";
+        public static final String RENT_END_DATE = "RentEndDate";
+        public static final String KILOMETERES_AT_START = "KilometresAtStart";
+        public static final String KILOMETERES_AT_END = "KilometresAtEnd";
+        public static final String IS_INSERT_DELEK = "IsInsertDelek";
+        public static final String HOW_MUCH_DELEK_INSERT = "HowMuchDelekInsert";
+        public static final String HOW_MUCH_NEED_PAY = "HowMuchNeedPay";
+        public static final String ORDER_NUM = "OrderNum"; }
 
 
 

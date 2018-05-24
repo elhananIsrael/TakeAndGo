@@ -41,7 +41,8 @@ public class AddCar extends AppCompatActivity {
         AverageCostPerDay = ((EditText) findViewById( R.id.AverageCostPerDay));
         calendarView =( (CalendarView)   findViewById( R.id.calendarView));
 
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener()
+        {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 Toast.makeText(AddCar.this, "נבחר התאריך: " + dayOfMonth + "/" + (month+1) + "/" + year  , Toast.LENGTH_LONG).show();

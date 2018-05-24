@@ -1,6 +1,7 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
 import android.icu.text.SimpleDateFormat;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -60,20 +61,34 @@ public class AddCar extends AppCompatActivity {
     {
         try
         {
-            Car car = new Car(
-                    Model.getSelectedItem().toString(),
-                    new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(ProductionDate.getText().toString()),
-                    LicenseNumber.getText().toString(),
-                    Integer.parseInt(Mileage.getText().toString()),
-                    HomeBranch.getText().toString(),
-                    Integer.parseInt(AverageCostPerDay.getText().toString())  );
 
-            FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addCar(car);
 
-            //FactoryMethod.getDataSource().addCar(car);
+            new AsyncTask<Void, Void, Long>() {
+
+                Car car = new Car(
+                        Model.getSelectedItem().toString(),
+                        new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(ProductionDate.getText().toString()),
+                        LicenseNumber.getText().toString(),
+                        Integer.parseInt(Mileage.getText().toString()),
+                        HomeBranch.getText().toString(),
+                        Integer.parseInt(AverageCostPerDay.getText().toString())  );
+
+                @Override
+                protected void onPostExecute(Long idResult) {
+                    super.onPostExecute(idResult);
+                    if (idResult > 0)
+                        Toast.makeText(getBaseContext(), "insert id: " + idResult, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                protected Long doInBackground(Void... params) {
+                    return FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addCar(car);
+
+                }
+            }.execute();
+
 
             this.finish();
-            //throw new Exception("Congratulations! Car number: " + LicenseNumber.getText().toString()+ " added to the database. \n" );
 
         }
         catch(Exception ex){

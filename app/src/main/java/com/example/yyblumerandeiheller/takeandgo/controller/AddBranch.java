@@ -35,37 +35,27 @@ public class AddBranch extends AppCompatActivity
         try
         {
 
-            new AsyncTask<Void, Void, Void>() {
+            new AsyncTask<Void, Void, Long>() {
 
                 Branch branch=new Branch(
                         BranchAddress.getText().toString(),
                         Integer.parseInt(Capacity.getText().toString()),
                         BranchNum.getText().toString(),
                         AdminName.getText().toString());
+
                 @Override
-                protected void onPostExecute(Void aVoid) {
-                    super.onPostExecute( aVoid );
-                    Toast.makeText( getBaseContext(), "Car Added OK", Toast.LENGTH_SHORT ).show();
+                protected void onPostExecute(Long idResult) {
+                    super.onPostExecute(idResult);
+                    if (idResult > 0)
+                        Toast.makeText(getBaseContext(), "insert id: " + idResult, Toast.LENGTH_LONG).show();
                 }
 
+                @Override
+                protected Long doInBackground(Void... params) {
+                    return FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addBranch(branch);
 
-               /* @Override
-                    protected void onPostExecute(Long idResult) {
-                    super.onPostExecute(Long idResult);
-                    if (idResult > 0)
-                        Toast.makeText(getBaseContext(), "insert id: " + idResult, Toast.LENGTH_LONG).show();     }*/
-
-                        @Override
-                protected Void doInBackground(Void... voids) {
-                            FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addBranch(branch);
-                            publishProgress( null );
-
-                            return null;}
+                }
             }.execute();
-
-
-
-
 
         this.finish();
 

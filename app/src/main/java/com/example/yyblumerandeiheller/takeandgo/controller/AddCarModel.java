@@ -1,5 +1,7 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
+import android.icu.text.SimpleDateFormat;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,6 +14,8 @@ import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
+
+import java.util.Locale;
 
 
 public class AddCarModel extends AppCompatActivity
@@ -42,19 +46,32 @@ public class AddCarModel extends AppCompatActivity
 
         try
         {
-        CarModel carModel=new CarModel(
-                CompanyName.getText().toString(),
-                ModelName.getText().toString(),
-                ModelCode.getText().toString(),
-                Integer.parseInt(EngineVolume.getText().toString()),
-                ConstantsAndEnums.gearboxMode.valueOf(Gearbox.getSelectedItem().toString()),
-                Integer.parseInt(NumOfSeats.getText().toString()),
-                ConstantsAndEnums.carKind.valueOf(CarKind.getSelectedItem().toString())    );
+
+            new AsyncTask<Void, Void, Long>() {
+
+                CarModel carModel=new CarModel(
+                        CompanyName.getText().toString(),
+                        ModelName.getText().toString(),
+                        ModelCode.getText().toString(),
+                        Integer.parseInt(EngineVolume.getText().toString()),
+                        ConstantsAndEnums.gearboxMode.valueOf(Gearbox.getSelectedItem().toString()),
+                        Integer.parseInt(NumOfSeats.getText().toString()),
+                        ConstantsAndEnums.carKind.valueOf(CarKind.getSelectedItem().toString())    );
+
+                @Override
+                protected void onPostExecute(Long idResult) {
+                    super.onPostExecute(idResult);
+                    if (idResult > 0)
+                        Toast.makeText(getBaseContext(), "insert id: " + idResult, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                protected Long doInBackground(Void... params) {
+                    return FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addCarModel(carModel);
 
 
-            FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addCarModel(carModel);
-
-            //FactoryMethod.getDataSource().addCarModel(carModel);
+                }
+            }.execute();
 
         this.finish();
             //throw new Exception("Congratulations! Car Model with code: " + ModelCode.getText().toString()+ " added to the database. \n" );

@@ -1,5 +1,6 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
+import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
 import static android.app.PendingIntent.getActivity;
 import static android.widget.Toast.makeText;
@@ -43,22 +45,34 @@ public class AddCustomer extends AppCompatActivity {
         public void btnAddUserClick(View view) {
             try
             {
-            Customer customer = new Customer(
-                    id.getText().toString(),
-                    firstName.getText().toString(),
-                    lastName.getText().toString(),
-                    phoneNum.getText().toString(),
-                    email.getText().toString(),
-                    creditCardNum.getText().toString()   );
 
-                FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addCustomer(customer);
+                new AsyncTask<Void, Void, Long>() {
+
+                    Customer customer = new Customer(
+                            id.getText().toString(),
+                            firstName.getText().toString(),
+                            lastName.getText().toString(),
+                            phoneNum.getText().toString(),
+                            email.getText().toString(),
+                            creditCardNum.getText().toString()   );
+
+                    @Override
+                    protected void onPostExecute(Long idResult) {
+                        super.onPostExecute(idResult);
+                        if (idResult > 0)
+                            Toast.makeText(getBaseContext(), "insert id: " + idResult, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    protected Long doInBackground(Void... params) {
+                        return FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addCustomer(customer);
 
 
-                FragmentManager fm = getSupportFragmentManager();
+                    }
+                }.execute();
 
             this.finish();
 
-            //new DialogFragment().show(fm ,"Congratulations! Car with ID number: " + id.getText().toString()+ "added to the database. \n");
             //throw new Exception("Congratulations! Car with ID number: " + id.getText().toString()+ " added to the database. \n" );
             }
             catch(Exception ex){

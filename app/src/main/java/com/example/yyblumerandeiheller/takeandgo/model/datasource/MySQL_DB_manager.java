@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class MySQL_DB_manager implements DataSource {
 
 
-    private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/httpdocs/TakeAndGo/carsRent";
+    private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent";
 
     private boolean updateFlag = false;
 

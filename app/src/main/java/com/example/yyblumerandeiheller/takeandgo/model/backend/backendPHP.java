@@ -135,9 +135,7 @@ public class backendPHP implements DataSource
     }
 
     @Override
-    public Branch isExistsBranch(String branchId) {
-        return null;
-    }
+    public Branch isExistsBranch(String branchId) { return null; }
 
     @Override
     public ArrayList<Customer> allCustomers() {

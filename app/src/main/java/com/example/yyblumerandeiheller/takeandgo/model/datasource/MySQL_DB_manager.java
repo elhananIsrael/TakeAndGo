@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.util.Log;
 
 import com.example.yyblumerandeiheller.takeandgo.model.backend.DataSource;
-import com.example.yyblumerandeiheller.takeandgo.model.backend.GET_POST;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.PHP_Tools;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Branch;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
@@ -58,7 +58,7 @@ public class MySQL_DB_manager implements DataSource {
                 values.put("Email", customer.getEmail());
                 values.put("CreditCardNum", customer.getCreditCardNum());*/
 
-            String result =GET_POST.POST(url, ConstantsAndEnums.CustomerToContentValues(customer));
+            String result =PHP_Tools.POST(url, ConstantsAndEnums.CustomerToContentValues(customer));
             long id = Long.parseLong(result);
             if (id > 0)
                 SetUpdate();
@@ -88,7 +88,7 @@ public class MySQL_DB_manager implements DataSource {
                 values.put( "AverageCostPerDay", car.getAverageCostPerDay() );
                 values.put( "Busy", car.getBusy() );*/
 
-            GET_POST.POST(url, ConstantsAndEnums.CarToContentValues(car));
+            PHP_Tools.POST(url, ConstantsAndEnums.CarToContentValues(car));
         }
         catch (Exception e)
         {
@@ -114,7 +114,7 @@ public class MySQL_DB_manager implements DataSource {
                 values.put("NumOfSeats", carModel.getNumOfSeats());
                 values.put("CarKind", carModel.getCarKind().toString());*/
 
-            GET_POST.POST(url, ConstantsAndEnums.CarModelToContentValues(carModel));
+            PHP_Tools.POST(url, ConstantsAndEnums.CarModelToContentValues(carModel));
         }
         catch (Exception e)
         {
@@ -138,7 +138,7 @@ public class MySQL_DB_manager implements DataSource {
                 values.put("AdministratorName", branch.getAdministratorName());*/
 
 
-            GET_POST.POST(url, ConstantsAndEnums.BranchToContentValues(branch));
+            PHP_Tools.POST(url, ConstantsAndEnums.BranchToContentValues(branch));
         }
         catch (Exception e)
         {
@@ -185,14 +185,14 @@ public class MySQL_DB_manager implements DataSource {
 
         try
         {
-            String str = GET_POST.GET(WEB_URL + "/getCustomers.php");
+            String str = PHP_Tools.GET(WEB_URL + "/getCustomers.php");
             JSONArray array = new JSONObject(str).getJSONArray("Customers");
 
             for (int i = 0; i < array.length(); i++)
             {
                 JSONObject jsonObject = array.getJSONObject(i);
 
-                ContentValues contentValues = GET_POST.JsonToContentValues(jsonObject);
+                ContentValues contentValues = PHP_Tools.JsonToContentValues(jsonObject);
                 Customer customer=ConstantsAndEnums.ContentValuesToCustomer(contentValues);
 
                 customers.add(customer);
@@ -216,14 +216,14 @@ public class MySQL_DB_manager implements DataSource {
 
         try {
 
-            String str = GET_POST.GET(WEB_URL + "/getCars.php");
+            String str = PHP_Tools.GET(WEB_URL + "/getCars.php");
             JSONArray array = new JSONObject(str).getJSONArray("Cars");
 
 
             for (int i = 0; i < array.length(); i++) {
                 JSONObject jsonObject = array.getJSONObject(i);
 
-                ContentValues contentValues = GET_POST.JsonToContentValues(jsonObject);
+                ContentValues contentValues = PHP_Tools.JsonToContentValues(jsonObject);
                 Car car = ConstantsAndEnums.ContentValuesToCar(contentValues);
 
                 cars.add(car);
@@ -246,7 +246,7 @@ public class MySQL_DB_manager implements DataSource {
         try
         {
 
-            String str = GET_POST.GET(WEB_URL + "/getCarModels.php");
+            String str = PHP_Tools.GET(WEB_URL + "/getCarModels.php");
             JSONArray array = new JSONObject(str).getJSONArray("CarModels");
 
 
@@ -254,7 +254,7 @@ public class MySQL_DB_manager implements DataSource {
             {
                 JSONObject jsonObject = array.getJSONObject(i);
 
-                ContentValues contentValues = GET_POST.JsonToContentValues(jsonObject);
+                ContentValues contentValues = PHP_Tools.JsonToContentValues(jsonObject);
                 CarModel carModel=ConstantsAndEnums.ContentValuesToCarModel(contentValues);
 
                 carModels.add(carModel);
@@ -278,13 +278,13 @@ public class MySQL_DB_manager implements DataSource {
         try
         {
 
-            String str = GET_POST.GET(WEB_URL + "/getBranches.php");
+            String str = PHP_Tools.GET(WEB_URL + "/getBranches.php");
             JSONArray array = new JSONObject(str).getJSONArray("Branches");
 
             for (int i = 0; i < array.length(); i++) {
                 JSONObject jsonObject = array.getJSONObject(i);
 
-                ContentValues contentValues = GET_POST.JsonToContentValues(jsonObject);
+                ContentValues contentValues = PHP_Tools.JsonToContentValues(jsonObject);
                 Branch branch=ConstantsAndEnums.ContentValuesToBranch(contentValues);
 
                 branches.add(branch);

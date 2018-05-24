@@ -1,8 +1,6 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
@@ -10,12 +8,13 @@ import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
-import com.example.yyblumerandeiheller.takeandgo.model.backend.backendPHP;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Branch;
+import com.example.yyblumerandeiheller.takeandgo.model.datasource.MySQL_DB_manager;
+
 
 public class AddBranch extends AppCompatActivity
 {
-    //FactoryMethod factoryMethod=FactoryMethod.getInstance();
+
     EditText BranchNum, BranchAddress, Capacity, AdminName;
 
     @Override
@@ -40,10 +39,9 @@ public class AddBranch extends AppCompatActivity
                 BranchNum.getText().toString(),
                 AdminName.getText().toString());
 
-            backendPHP bphp=new backendPHP();
-            bphp.addBranch(branch);
+            MySQL_DB_manager SQL_DB=new MySQL_DB_manager();
+            FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addBranch(branch);
 
-        //FactoryMethod.getDataSource().addBranch(branch);
 
         this.finish();
 

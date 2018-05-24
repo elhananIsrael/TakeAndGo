@@ -1,13 +1,6 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,7 +9,6 @@ import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
-import com.example.yyblumerandeiheller.takeandgo.model.backend.backendPHP;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
 
 import static android.app.PendingIntent.getActivity;
@@ -59,9 +51,7 @@ public class AddCustomer extends AppCompatActivity {
                     email.getText().toString(),
                     creditCardNum.getText().toString()   );
 
-            //FactoryMethod.getDataSource().addCustomer( customer );
-                backendPHP bphp=new backendPHP();
-                bphp.addCustomer(customer);
+                FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addCustomer(customer);
 
 
                 FragmentManager fm = getSupportFragmentManager();

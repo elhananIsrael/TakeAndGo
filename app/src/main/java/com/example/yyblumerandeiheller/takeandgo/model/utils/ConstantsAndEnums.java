@@ -3,7 +3,7 @@ package com.example.yyblumerandeiheller.takeandgo.model.utils;
 public class ConstantsAndEnums {
 
     public class Log {
-        public final static String TAG = "TakeNGO1";
+        public final static String TAG = "Take&GO";
 
             public final static String APP_LOG = "Rent";
         }

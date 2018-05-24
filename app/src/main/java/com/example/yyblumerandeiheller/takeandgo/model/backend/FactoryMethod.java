@@ -1,11 +1,11 @@
 package com.example.yyblumerandeiheller.takeandgo.model.backend;
 
 import com.example.yyblumerandeiheller.takeandgo.model.datasource.ListsDataSource;
+import com.example.yyblumerandeiheller.takeandgo.model.datasource.MySQL_DB_manager;
 
 
 public class FactoryMethod
 {
-
     private static final FactoryMethod ourInstance = new FactoryMethod();
 
     public static FactoryMethod getInstance() {
@@ -14,7 +14,31 @@ public class FactoryMethod
 
     private FactoryMethod() {   }
 
+///////////////////////////////
+
     private static DataSource dataSourceInstance = new ListsDataSource();
 
-    public static DataSource getDataSource() {return  dataSourceInstance; }
+    private static DataSource myDataSourceInstance = new MySQL_DB_manager();
+
+////////////////////////////////
+
+
+ //   public static DataSource getDataSource() {return  myDataSourceInstance; }
+
+
+    public enum Type {
+        MySQL,
+        Lists;
+    }
+
+    public static  DataSource getDataSource(Type type){
+        switch (type){
+            case Lists:
+                return dataSourceInstance;
+            case MySQL:
+                return new MySQL_DB_manager();        }
+        return myDataSourceInstance;
+    }
+
+
 }

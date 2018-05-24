@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
-import com.example.yyblumerandeiheller.takeandgo.model.backend.backendPHP;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 
@@ -50,7 +49,7 @@ public class AddCar extends AppCompatActivity {
             }
         });
 
-        Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, FactoryMethod.getDataSource().allCarModels()));
+        Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels()));
 
     }
 
@@ -68,8 +67,7 @@ public class AddCar extends AppCompatActivity {
                     HomeBranch.getText().toString(),
                     Integer.parseInt(AverageCostPerDay.getText().toString())  );
 
-            backendPHP bphp=new backendPHP();
-            bphp.addCar(car);
+            FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).addCar(car);
 
             //FactoryMethod.getDataSource().addCar(car);
 

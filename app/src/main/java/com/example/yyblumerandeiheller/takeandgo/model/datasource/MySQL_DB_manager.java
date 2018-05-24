@@ -1,33 +1,132 @@
 package com.example.yyblumerandeiheller.takeandgo.model.datasource;
 
+import android.content.ContentValues;
+import android.util.Log;
+
 import com.example.yyblumerandeiheller.takeandgo.model.backend.DataSource;
+import com.example.yyblumerandeiheller.takeandgo.model.backend.GET_POST;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Branch;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
+import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MySQL_DB_manager implements DataSource {
-    @Override
-    public void addCustomer(Customer customer) {
 
-    }
 
-    @Override
-    public void addCar(Car car) {
+    /////////////////////////////////////////////
 
-    }
+        private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/httpdocs/TakeAndGo/carsRent/carsRent/";
+        protected ArrayList<Car> cars = new ArrayList<>();
 
-    @Override
-    public void addCarModel(CarModel carModel) {
 
-    }
+        @Override
+        public void addCustomer(Customer customer)
+        {
+            try
+            {
+                String url = WEB_URL + "/add_customer.php";
 
-    @Override
-    public void addBranch(Branch branch) {
+                final ContentValues values = new ContentValues();
 
-    }
+                values.put("Id", customer.getId());
+                values.put("FirstName", customer.getFirstName());
+                values.put("LastName", customer.getLastName());
+                values.put("PhoneNum", customer.getPhoneNum());
+                values.put("Email", customer.getEmail());
+                values.put("CreditCardNum", customer.getCreditCardNum());
+
+                GET_POST.POST(url, values);
+            }
+            catch (IOException e)
+            {
+                // printLog("addStudent Exception:\n" + e);
+                Log.w( ConstantsAndEnums.Log.APP_LOG, e.getMessage() );
+            }
+        }
+
+
+        @Override
+        public void addCar(Car car)
+        {
+            try
+            {
+                String url = WEB_URL + "/add_car.php" ;
+
+                final ContentValues values = new ContentValues();
+
+                values.put( "Model", car.getModel() );
+                values.put( "ProductionDate", car.getProductionDate().toString() );
+                values.put( "LicenseNumber", car.getLicenseNumber() );
+                values.put( "Mileage", car.getMileage() );
+                values.put( "HomeBranch", car.getHomeBranch() );
+                values.put( "AverageCostPerDay", car.getAverageCostPerDay() );
+                values.put( "Busy", car.getBusy() );
+
+                GET_POST.POST( url, values );
+            }
+            catch (Exception e)
+            {
+                Log.w( ConstantsAndEnums.Log.APP_LOG, e.getMessage() );
+            }
+        }
+
+
+        @Override
+        public void addCarModel(CarModel carModel)
+        {
+            try
+            {
+                String url = WEB_URL + "/add_car_model.php";
+
+                final ContentValues values = new ContentValues();
+
+                values.put("CompanyName", carModel.getCompanyName());
+                values.put("ModelName", carModel.getModelName());
+                values.put("ModelCode", carModel.getModelCode());
+                values.put("EngineVolume", carModel.getEngineCapacity());
+                values.put("Gearbox", carModel.getGearbox().toString());
+                values.put("NumOfSeats", carModel.getSeats());
+                values.put("CarKind", carModel.getCarKind().toString());
+
+                GET_POST.POST(url, values);
+            }
+            catch (Exception e)
+            {
+                Log.w( ConstantsAndEnums.Log.APP_LOG, e.getMessage() );
+            }
+        }
+
+
+
+        @Override
+        public void addBranch(Branch branch)
+        {
+            try
+            {
+                String url = WEB_URL + "/add_branch.php";
+
+                final ContentValues values = new ContentValues();
+
+                values.put("BranchAddress", branch.getAddress());
+                values.put("CapacityOfCar", branch.getCapacityOfCar());
+                values.put("BranchNum", branch.getBranchId());
+                values.put("AdministratorName", branch.getAdministratorName());
+
+
+                GET_POST.POST(url, values);
+            }
+            catch (Exception e)
+            {
+                Log.w( ConstantsAndEnums.Log.APP_LOG, e.getMessage() );
+            }
+        }
+
+    //////////////////////////////////////////////////////
+
 
     @Override
     public Customer isExistsCustomer(String id) {

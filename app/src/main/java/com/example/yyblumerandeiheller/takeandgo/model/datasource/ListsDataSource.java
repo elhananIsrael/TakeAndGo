@@ -79,7 +79,7 @@ public class ListsDataSource implements DataSource {
     @Override
     public Branch isExistsBranch(String branchId) {
         for( Branch branch : branches)
-            if (branch.getBranchId().equals( branchId ))
+            if (branch.getBranchNum().equals( branchId ))
                 return  branch;
         return null;    }
 

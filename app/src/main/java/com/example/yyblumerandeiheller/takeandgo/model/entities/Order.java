@@ -1,115 +1,129 @@
 package com.example.yyblumerandeiheller.takeandgo.model.entities;
 
-import java.sql.Time;
+import java.util.Date;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums.orderMode;
 
 
 public class Order {
 
-    protected String CustomerNum;
-    protected orderMode ModeOfOrder;
-    protected String CarNumber;
-    protected Time RentStartDate;
-    protected Time RentEndDate;
-    protected int KilometresAtStart;
-    protected int KilometresAtEnd;
-    protected boolean IsInsertDelek;
-    protected int HowMuchDelekInsert;
-    protected int HowMuchNeedPay;
-    protected String OrderNum;
+    protected String customerNum;
+    protected orderMode modeOfOrder;
+    protected String carNumber;
+    protected Date rentStartDate;
+    protected Date rentEndDate;
+    protected int kilometresAtStart;
+    protected int kilometresAtEnd;
+    protected boolean isInsertDelek;
+    protected int howMuchDelekInsert;
+    protected int howMuchNeedPay;
+    protected String orderNum;
 
-    public Order(String customerNum, orderMode modeOfOrder, String carNumber, Time rentStartDate,
-                 Time rentEndDate, int kilometresAtStart, int kilometresAtEnd, boolean isInsertDelek,
+    public Order(String customerNum, orderMode modeOfOrder, String carNumber, Date rentStartDate,
+                 Date rentEndDate, int kilometresAtStart, int kilometresAtEnd, boolean isInsertDelek,
                  int howMuchDelekInsert, int howMuchNeedPay, String orderNum){
 
-        this.CustomerNum = customerNum;
-        this.ModeOfOrder = modeOfOrder;
-        this.CarNumber = carNumber;
-        this.RentStartDate = rentStartDate;
-        this.RentEndDate = rentEndDate;
-        this.KilometresAtStart = kilometresAtStart;
-        this.KilometresAtEnd = kilometresAtEnd;
-        this.IsInsertDelek = isInsertDelek;
-        this.HowMuchDelekInsert = howMuchDelekInsert;
-        this.HowMuchNeedPay = howMuchNeedPay;
-        this.OrderNum = orderNum;
+        this.customerNum = customerNum;
+        this.modeOfOrder = modeOfOrder;
+        this.carNumber = carNumber;
+        this.rentStartDate = rentStartDate;
+        this.rentEndDate = rentEndDate;
+        this.kilometresAtStart = kilometresAtStart;
+        this.kilometresAtEnd = kilometresAtEnd;
+        this.isInsertDelek = isInsertDelek;
+        this.howMuchDelekInsert = howMuchDelekInsert;
+        this.howMuchNeedPay = howMuchNeedPay;
+        this.orderNum = orderNum;
+    }
+
+    public Order() {
+
     }
 
     public String getCustomerNum() {
-        return CustomerNum;
+        return customerNum;
     }
 
     public void setCustomerNum(String customerNum) {
-        this.CustomerNum = customerNum;
+        this.customerNum = customerNum;
     }
 
     public orderMode getModeOfOrder() {
-        return ModeOfOrder;
+        return modeOfOrder;
     }
 
     public void setModeOfOrder(orderMode modeOfOrder) {
-        this.ModeOfOrder = modeOfOrder;
+        this.modeOfOrder = modeOfOrder;
     }
 
     public String getCarNumber() {
-        return CarNumber;
+        return carNumber;
     }
 
     public void setCarNumber(String carNumber) {
-        this.CarNumber = carNumber;
+        this.carNumber = carNumber;
     }
 
-    public Time getRentStartDate() {
-        return RentStartDate;
+    public Date getRentStartDate() {
+        return rentStartDate;
     }
 
-    public void setRentStartDate(Time rentStartDate) {
-        this.RentStartDate = rentStartDate;
+    public void setRentStartDate(Date rentStartDate) {
+        this.rentStartDate = rentStartDate;
     }
 
-    public Time getRentEndDate() {
-        return RentEndDate;
+    public Date getRentEndDate() {
+        return rentEndDate;
     }
 
-    public void setRentEndDate(Time rentEndDate) { this.RentEndDate = rentEndDate; }
+    public void setRentEndDate(Date rentEndDate) {
+        this.rentEndDate = rentEndDate;
+    }
 
     public int getKilometresAtStart() {
-        return KilometresAtStart;
+        return kilometresAtStart;
     }
 
-    public void setKilometresAtStart(int kilometresAtStart) { this.KilometresAtStart = kilometresAtStart; }
+    public void setKilometresAtStart(int kilometresAtStart) {
+        this.kilometresAtStart = kilometresAtStart;
+    }
 
-    public int getKilometresAtEnd() { return KilometresAtEnd;
+    public int getKilometresAtEnd() {
+        return kilometresAtEnd;
     }
 
     public void setKilometresAtEnd(int kilometresAtEnd) {
-        this.KilometresAtEnd = kilometresAtEnd;
+        this.kilometresAtEnd = kilometresAtEnd;
     }
 
     public boolean getIsInsertDelek() {
-        return IsInsertDelek;
+        return isInsertDelek;
     }
 
     public void setIsInsertDelek(boolean isInsertDelek) {
-        this.IsInsertDelek= isInsertDelek;
+        this.isInsertDelek= isInsertDelek;
     }
 
-    public int getHowMuchDelekInsert() { return HowMuchDelekInsert; }
+    public int getHowMuchDelekInsert() {
+        return howMuchDelekInsert;
+    }
 
-    public void setHowMuchDelekInsert(int howMuchDelekInsert) { this.HowMuchDelekInsert = howMuchDelekInsert; }
+    public void setHowMuchDelekInsert(int howMuchDelekInsert) {
+        this.howMuchDelekInsert = howMuchDelekInsert;
+    }
 
-    public int getHowMuchNeedPay() { return HowMuchNeedPay;
+    public int getHowMuchNeedPay() {
+        return howMuchNeedPay;
     }
 
     public void setHowMuchNeedPay(int howMuchNeedPay) {
-        this.HowMuchNeedPay = howMuchNeedPay;
+        this.howMuchNeedPay = howMuchNeedPay;
     }
 
     public String getOrderNum() {
-        return OrderNum;
+        return orderNum;
     }
 
     public void setOrderNum(String orderNum) {
-        this.OrderNum = orderNum;
+        this.orderNum = orderNum;
     }
 }

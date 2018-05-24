@@ -1,44 +1,53 @@
 package com.example.yyblumerandeiheller.takeandgo.model.entities;
 
 public class Branch {
-    protected String BranchAddress;
-    protected int CapacityOfCar;
-    protected String BranchNum;
-    protected String AdministratorName;
+    protected String branchAddress;
+    protected int capacityOfCar;
+    protected String branchNum;
+    protected String administratorName;
 
     public Branch(String address, int capacityOfCar, String branchNum, String administratorName)
     {
-        this.BranchAddress = address;
-        this.CapacityOfCar = capacityOfCar;
-        this.BranchNum = branchNum;
-        this.AdministratorName=administratorName;
+        this.branchAddress = address;
+        this.capacityOfCar = capacityOfCar;
+        this.branchNum = branchNum;
+        this.administratorName=administratorName;
     }
 
-    public String getAddress() {
-        return BranchAddress;
+    public Branch() {
+
     }
 
-    public void setAddress(String address) {
-        this.BranchAddress = address;
+    public String getBranchAddress() {
+        return branchAddress;
+    }
+
+    public void setBranchAddress(String address) {
+        this.branchAddress = address;
     }
 
     public int getCapacityOfCar() {
-        return CapacityOfCar;
+        return capacityOfCar;
     }
 
-    public void setParkingSpacesNum(int parkingSpacesNum) {
-        this.CapacityOfCar = parkingSpacesNum;
+    public void setCapacityOfCar(int capacityOfCar) {
+        this.capacityOfCar = capacityOfCar;
     }
 
-    public String getBranchId() {
-        return BranchNum;
+    public String getBranchNum() {
+        return branchNum;
     }
 
-    public void setBranchId(String branchNum) {
-        this.BranchNum = branchNum;
+    public void setBranchNum(String branchNum) {
+        this.branchNum = branchNum;
     }
 
-    public String getAdministratorName() { return AdministratorName; }
+    public String getAdministratorName() {
+        return administratorName;
+    }
 
-    public void setAdministratorName(String administratorName){this.AdministratorName=administratorName;}
+    public void setAdministratorName(String administratorName) {
+        this.administratorName = administratorName;
+    }
+
 }

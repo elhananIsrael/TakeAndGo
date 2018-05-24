@@ -17,8 +17,6 @@ import java.util.ArrayList;
 public class MySQL_DB_manager implements DataSource {
 
 
-    /////////////////////////////////////////////
-
         private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/httpdocs/TakeAndGo/carsRent/carsRent/";
         protected ArrayList<Car> cars = new ArrayList<>();
 
@@ -30,16 +28,16 @@ public class MySQL_DB_manager implements DataSource {
             {
                 String url = WEB_URL + "/add_customer.php";
 
-                final ContentValues values = new ContentValues();
+             /*   final ContentValues values = new ContentValues();
 
-                values.put("Id", customer.getId());
+              values.put("Id", customer.getId());
                 values.put("FirstName", customer.getFirstName());
                 values.put("LastName", customer.getLastName());
                 values.put("PhoneNum", customer.getPhoneNum());
                 values.put("Email", customer.getEmail());
-                values.put("CreditCardNum", customer.getCreditCardNum());
+                values.put("CreditCardNum", customer.getCreditCardNum());*/
 
-                GET_POST.POST(url, values);
+                GET_POST.POST(url, ConstantsAndEnums.CustomerToContentValues(customer));
             }
             catch (IOException e)
             {
@@ -56,17 +54,17 @@ public class MySQL_DB_manager implements DataSource {
             {
                 String url = WEB_URL + "/add_car.php" ;
 
-                final ContentValues values = new ContentValues();
+             /* final ContentValues values = new ContentValues();
 
-                values.put( "Model", car.getModel() );
+                values.put( "Model", car.getModelCode() );
                 values.put( "ProductionDate", car.getProductionDate().toString() );
                 values.put( "LicenseNumber", car.getLicenseNumber() );
                 values.put( "Mileage", car.getMileage() );
                 values.put( "HomeBranch", car.getHomeBranch() );
                 values.put( "AverageCostPerDay", car.getAverageCostPerDay() );
-                values.put( "Busy", car.getBusy() );
+                values.put( "Busy", car.getBusy() );*/
 
-                GET_POST.POST( url, values );
+                GET_POST.POST( url, ConstantsAndEnums.CarToContentValues(car) );
             }
             catch (Exception e)
             {
@@ -82,17 +80,17 @@ public class MySQL_DB_manager implements DataSource {
             {
                 String url = WEB_URL + "/add_car_model.php";
 
-                final ContentValues values = new ContentValues();
+              /*final ContentValues values = new ContentValues();
 
                 values.put("CompanyName", carModel.getCompanyName());
                 values.put("ModelName", carModel.getModelName());
                 values.put("ModelCode", carModel.getModelCode());
-                values.put("EngineVolume", carModel.getEngineCapacity());
+                values.put("EngineVolume", carModel.getEngineVolume());
                 values.put("Gearbox", carModel.getGearbox().toString());
-                values.put("NumOfSeats", carModel.getSeats());
-                values.put("CarKind", carModel.getCarKind().toString());
+                values.put("NumOfSeats", carModel.getNumOfSeats());
+                values.put("CarKind", carModel.getCarKind().toString());*/
 
-                GET_POST.POST(url, values);
+                GET_POST.POST(url, ConstantsAndEnums.CarModelToContentValues(carModel));
             }
             catch (Exception e)
             {
@@ -109,15 +107,15 @@ public class MySQL_DB_manager implements DataSource {
             {
                 String url = WEB_URL + "/add_branch.php";
 
-                final ContentValues values = new ContentValues();
+             /* final ContentValues values = new ContentValues();
 
-                values.put("BranchAddress", branch.getAddress());
+                values.put("BranchAddress", branch.getBranchAddress());
                 values.put("CapacityOfCar", branch.getCapacityOfCar());
-                values.put("BranchNum", branch.getBranchId());
-                values.put("AdministratorName", branch.getAdministratorName());
+                values.put("BranchNum", branch.getBranchNum());
+                values.put("AdministratorName", branch.getAdministratorName());*/
 
 
-                GET_POST.POST(url, values);
+                GET_POST.POST(url, ConstantsAndEnums.BranchToContentValues(branch));
             }
             catch (Exception e)
             {

@@ -7,64 +7,68 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums.c
 
 public class CarModel
 {
-    protected String CompanyName;
-    protected String ModelName;
-    protected String ModelCode;
-    protected int EngineVolume;
-    protected gearboxMode Gearbox;
-    protected int NumOfSeats;
-    protected carKind CarKind;
+    protected String companyName;
+    protected String modelName;
+    protected String modelCode;
+    protected int engineVolume;
+    protected gearboxMode gearbox;
+    protected int numOfSeats;
+    protected carKind carKind;
 
 
-    public CarModel(String companyName, String modelName, String modelCode, int engineVolume, gearboxMode gearbox, int seats, carKind kind)
+    public CarModel(String companyName, String modelName, String modelCode, int engineVolume, gearboxMode gearbox, int numOfSeats, carKind carKind)
     {
-        this.CompanyName = companyName;
-        this.ModelName = modelName;
-        this.ModelCode = modelCode;
-        this.EngineVolume = engineVolume;
-        this.Gearbox = gearbox;
-        this.NumOfSeats = seats;
-        this.CarKind=kind;
+        this.companyName = companyName;
+        this.modelName = modelName;
+        this.modelCode = modelCode;
+        this.engineVolume = engineVolume;
+        this.gearbox = gearbox;
+        this.numOfSeats = numOfSeats;
+        this.carKind=carKind;
+    }
+
+    public CarModel() {
+
     }
 
 
-    public String getCompanyName() { return CompanyName; }
+    public String getCompanyName() { return companyName; }
 
-    public void setCompanyName(String companyName) { this.CompanyName = companyName; }
+    public void setCompanyName(String companyName) { this.companyName = companyName; }
 
-    public String getModelName() { return ModelName; }
+    public String getModelName() { return modelName; }
 
-    public void setModelName(String modelName) { this.ModelName = modelName; }
+    public void setModelName(String modelName) { this.modelName = modelName; }
 
-    public String getModelCode() { return ModelCode; }
+    public String getModelCode() { return modelCode; }
 
     public void setModelCode(String modelCode) {
-        this.ModelCode = modelCode;
+        this.modelCode = modelCode;
     }
 
-    public int getEngineCapacity() {
-        return EngineVolume;
+    public int getEngineVolume() {
+        return engineVolume;
     }
 
-    public void setEngineCapacity(int engineVolume) {
-        this.EngineVolume = engineVolume;
+    public void setEngineVolume(int engineVolume) {
+        this.engineVolume = engineVolume;
     }
 
-    public gearboxMode getGearbox() { return Gearbox; }
+    public gearboxMode getGearbox() { return gearbox; }
 
     public void setGearbox(gearboxMode gearbox) {
-        this.Gearbox = gearbox;
+        this.gearbox = gearbox;
     }
 
-    public int getSeats() {
-        return NumOfSeats;
+    public int getNumOfSeats() {
+        return numOfSeats;
     }
 
-    public void setSeats(int numOfSeats) {
-        this.NumOfSeats = numOfSeats;
+    public void setNumOfSeats(int numOfSeats) {
+        this.numOfSeats = numOfSeats;
     }
 
-    public carKind getCarKind(){return CarKind;}
+    public carKind getCarKind(){return carKind;}
 
-    public void setCarKind(carKind kind){CarKind=kind;}
+    public void setCarKind(carKind carKind){this.carKind=carKind;}
 }

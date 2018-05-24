@@ -2,66 +2,70 @@ package com.example.yyblumerandeiheller.takeandgo.model.entities;
 
 public class Customer
 {
-    protected String Id;
-    protected String FirstName;
-    protected String LastName;
-    protected String PhoneNum;
-    protected String Email;
-    protected String CreditCardNum;
+    protected String id;
+    protected String firstName;
+    protected String lastName;
+    protected String phoneNum;
+    protected String email;
+    protected String creditCardNum;
 
 
     public Customer(String id, String firstName, String lastName, String phoneNumber, String email, String creditCardNum) {
-        this.Id = id;
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.PhoneNum = phoneNumber;
-        this.Email = email;
-        this.CreditCardNum = creditCardNum;
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNum = phoneNumber;
+        this.email = email;
+        this.creditCardNum = creditCardNum;
+    }
+
+    public Customer() {
+
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        this.FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getPhoneNum() {
-        return PhoneNum;
+        return phoneNum;
     }
 
     public void setPhoneNum(String phoneNum) {
-        this.PhoneNum = phoneNum;
+        this.phoneNum = phoneNum;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        this.Email = email;
+        this.email = email;
     }
 
-    public String getCreditCardNum() { return CreditCardNum; }
+    public String getCreditCardNum() { return creditCardNum; }
 
     public void setCreditCardNum(String creditCardNum) {
-        this.CreditCardNum = creditCardNum;
+        this.creditCardNum = creditCardNum;
     }
 }

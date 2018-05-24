@@ -5,64 +5,68 @@ import java.util.Date;
 
 public class Car
 {
-    protected String Model;
-    protected Date ProductionDate;
-    protected int Mileage;
-    protected String LicenseNumber;
-    protected String HomeBranch;
-    protected int AverageCostPerDay;
-    protected boolean Busy;
+    protected String modelCode;
+    protected Date productionDate;
+    protected int mileage;
+    protected String licenseNumber;
+    protected String homeBranch;
+    protected int averageCostPerDay;
+    protected boolean busy;
 
 
-    public Car(String model, Date productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
+    public Car(String modelCode, Date productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
     {
-        this.Model=model;
-        this.ProductionDate=productionDate;
-        this.LicenseNumber=licenseNumber;
-        this.Mileage=mileage;
-        this.HomeBranch=homeBranch;
-        this.AverageCostPerDay=averageCostPerDay;
-        this.Busy=false;
+        this.modelCode=modelCode;
+        this.productionDate=productionDate;
+        this.licenseNumber=licenseNumber;
+        this.mileage=mileage;
+        this.homeBranch=homeBranch;
+        this.averageCostPerDay=averageCostPerDay;
+        this.busy=false;
+    }
+
+    public Car() {
+
     }
 
 
-    public String getModel() {
-        return Model;
+    public String getModelCode() {
+        return this.modelCode;
     }
 
-    public void setCarModel(String carModel) {
-        this.Model = carModel;
+    public void setModelCode(String modelCode) {
+        this.modelCode = modelCode;
     }
 
-    public Date getProductionDate(){ return ProductionDate;}
+    public Date getProductionDate(){ return productionDate;}
 
-    public void setProductionDate(Date productionDate){ this.ProductionDate=productionDate;}
+    public void setProductionDate(Date productionDate){ this.productionDate=productionDate;}
 
-    public int getMileage() { return Mileage; }
+    public int getMileage() { return mileage; }
 
     public void setMileage(int mileage) {
-        this.Mileage = mileage;
+        this.mileage = mileage;
     }
 
     public String getLicenseNumber() {
-        return LicenseNumber;
+        return licenseNumber;
     }
 
-    public void setLicenseNumber(String licenseNumber) { this.LicenseNumber = licenseNumber; }
+    public void setLicenseNumber(String licenseNumber) { this.licenseNumber = licenseNumber; }
 
     public String getHomeBranch() {
-        return HomeBranch;
+        return homeBranch;
     }
 
     public void setHomeBranch(String homeBranch) {
-        this.HomeBranch = homeBranch;
+        this.homeBranch = homeBranch;
     }
 
-    public int getAverageCostPerDay(){return AverageCostPerDay;}
+    public int getAverageCostPerDay(){return averageCostPerDay;}
 
-    public void setAverageCostPerDay(int averageCostPerDay){this.AverageCostPerDay=averageCostPerDay;}
+    public void setAverageCostPerDay(int averageCostPerDay){this.averageCostPerDay=averageCostPerDay;}
 
-    public boolean getBusy(){return Busy;}
+    public boolean getBusy(){return busy;}
 
-    public void setBusy(boolean busy){this.Busy=busy;}
+    public void setBusy(boolean busy){this.busy=busy;}
 }

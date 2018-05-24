@@ -18,9 +18,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MySQL_DB_manager implements DataSource {
-
-
+public class MySQL_DB_manager implements DataSource
+{
     private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent";
 
     private boolean updateFlag = false;
@@ -94,7 +93,6 @@ public class MySQL_DB_manager implements DataSource {
         try
         {
             String url = WEB_URL + "/add_car_model.php";
-
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.CarModelToContentValues(carModel));
 
@@ -183,6 +181,8 @@ public class MySQL_DB_manager implements DataSource {
     public Order isExistsOrder(String orderNum) {
         return null;
     }
+
+
 
 
     @Override
@@ -304,8 +304,31 @@ public class MySQL_DB_manager implements DataSource {
         return null;
     }
 
+
     @Override
-    public ArrayList<Order> allOrders() {
+    public ArrayList<Order> allOrders()
+    {
+        ArrayList<Order> orders = new ArrayList<>();
+
+        try
+        {
+            String str = PHP_Tools.GET(WEB_URL + "/getOrders.php");
+            JSONArray array = new JSONObject(str).getJSONArray("Orders");
+
+            for (int i = 0; i < array.length(); i++)
+            {
+                JSONObject jsonObject = array.getJSONObject(i);
+
+                ContentValues contentValues = PHP_Tools.JsonToContentValues(jsonObject);
+                Order order=ConstantsAndEnums.ContentValuesToOrder(contentValues);
+
+                orders.add(order);
+            }
+            return orders;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

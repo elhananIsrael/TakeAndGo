@@ -1,6 +1,7 @@
 package com.example.yyblumerandeiheller.takeandgo.model.entities;
 
-public class Branch {
+public class Branch
+{
     protected String branchAddress;
     protected int capacityOfCar;
     protected String branchNum;

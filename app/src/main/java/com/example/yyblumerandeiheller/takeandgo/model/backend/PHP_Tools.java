@@ -18,7 +18,7 @@ import java.util.Map;
 
 
 
-public class GET_POST
+public class PHP_Tools
 {
     public static String GET(String url) throws Exception
     {

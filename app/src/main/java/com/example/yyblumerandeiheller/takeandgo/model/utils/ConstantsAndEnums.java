@@ -4,7 +4,17 @@ public class ConstantsAndEnums {
 
     public class Log {
         public final static String TAG = "TakeNGO1";
-    }
+
+            public final static String APP_LOG = "Rent";
+        }
+
+        public class SharedPreferences{
+            public final static String File = "Local.Preferences";
+        }
+
+        public class BroadCastMessages{
+            public final static String UPDATE = "com.example.ourex.takengo.UPDATE";
+        }
 
     public class Messages{
 

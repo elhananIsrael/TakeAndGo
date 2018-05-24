@@ -1,15 +1,15 @@
 package com.example.yyblumerandeiheller.takeandgo.model.backend;
 
 import android.content.ContentValues;
-import android.provider.SyncStateContract;
 import android.util.Log;
 
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Branch;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
-import com.example.yyblumerandeiheller.takeandgo.model.utils.Constants;
+import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class backendPHP implements DataSource
@@ -36,9 +36,10 @@ public class backendPHP implements DataSource
 
             GET_POST.POST(url, values);
         }
-        catch (Exception e)
+        catch (IOException e)
         {
-            Log.w( Constants.Log.APP_LOG, e.getMessage() );
+           // printLog("addStudent Exception:\n" + e);
+            Log.w( ConstantsAndEnums.Log.APP_LOG, e.getMessage() );
         }
     }
 
@@ -63,7 +64,7 @@ public class backendPHP implements DataSource
         }
         catch (Exception e)
         {
-            Log.w( Constants.Log.APP_LOG, e.getMessage() );
+            Log.w( ConstantsAndEnums.Log.APP_LOG, e.getMessage() );
         }
     }
 
@@ -89,7 +90,7 @@ public class backendPHP implements DataSource
         }
         catch (Exception e)
         {
-            Log.w( Constants.Log.APP_LOG, e.getMessage() );
+            Log.w( ConstantsAndEnums.Log.APP_LOG, e.getMessage() );
         }
     }
 
@@ -112,7 +113,7 @@ public class backendPHP implements DataSource
         }
         catch (Exception e)
         {
-            Log.w( Constants.Log.APP_LOG, e.getMessage() );
+            Log.w( ConstantsAndEnums.Log.APP_LOG, e.getMessage() );
         }
     }
 

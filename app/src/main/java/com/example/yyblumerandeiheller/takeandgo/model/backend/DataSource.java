@@ -8,11 +8,11 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.*;
 public interface DataSource {
 
     //add:
-    void addCustomer(Customer customer);
-    void addCar(Car car);
-    void addCarModel(CarModel carModel);
-    void addBranch(Branch branch);
-    void addOrder(Order order);
+    long addCustomer(Customer customer);
+    long addCar(Car car);
+    long addCarModel(CarModel carModel);
+    long addBranch(Branch branch);
+    long addOrder(Order order);
 
 
     //isExists:

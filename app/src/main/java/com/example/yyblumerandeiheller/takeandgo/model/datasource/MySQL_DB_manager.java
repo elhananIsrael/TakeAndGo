@@ -43,112 +43,119 @@ public class MySQL_DB_manager implements DataSource {
 
 
     @Override
-    public void addCustomer(Customer customer)
+    public long addCustomer(Customer customer)
     {
         try
         {
             String url = WEB_URL + "/add_customer.php";
-
-             /*   final ContentValues values = new ContentValues();
-
-              values.put("Id", customer.getId());
-                values.put("FirstName", customer.getFirstName());
-                values.put("LastName", customer.getLastName());
-                values.put("PhoneNum", customer.getPhoneNum());
-                values.put("Email", customer.getEmail());
-                values.put("CreditCardNum", customer.getCreditCardNum());*/
 
             String result =PHP_Tools.POST(url, ConstantsAndEnums.CustomerToContentValues(customer));
             long id = Long.parseLong(result);
             if (id > 0)
                 SetUpdate();
             printLog("add customer:\n" + result);
+            return id;
         }
         catch (IOException e)
         {
-            // printLog("addStudent Exception:\n" + e);
-            Log.w(ConstantsAndEnums.Log.APP_LOG, e.getMessage());
+            printLog("addCustomer Exception:\n" + e);
+            return -1;
         }
     }
 
 
     @Override
-    public void addCar(Car car)
+    public long addCar(Car car)
     {
         try {
             String url = WEB_URL + "/add_car.php";
 
-             /* final ContentValues values = new ContentValues();
+            String result = PHP_Tools.POST(url, ConstantsAndEnums.CarToContentValues(car));
 
-                values.put( "Model", car.getModelCode() );
-                values.put( "ProductionDate", car.getProductionDate().toString() );
-                values.put( "LicenseNumber", car.getLicenseNumber() );
-                values.put( "Mileage", car.getMileage() );
-                values.put( "HomeBranch", car.getHomeBranch() );
-                values.put( "AverageCostPerDay", car.getAverageCostPerDay() );
-                values.put( "Busy", car.getBusy() );*/
+            long id = Long.parseLong(result);
+            if (id > 0)
+                SetUpdate();
+            printLog("add car:\n" + result);
 
-            PHP_Tools.POST(url, ConstantsAndEnums.CarToContentValues(car));
+            return id;
+
         }
         catch (Exception e)
         {
-            Log.w(ConstantsAndEnums.Log.APP_LOG, e.getMessage());
+            printLog("addCar Exception:\n" + e);
+            return -1;
         }
     }
 
 
     @Override
-    public void addCarModel(CarModel carModel)
+    public long addCarModel(CarModel carModel)
     {
         try
         {
             String url = WEB_URL + "/add_car_model.php";
 
-              /*final ContentValues values = new ContentValues();
 
-                values.put("CompanyName", carModel.getCompanyName());
-                values.put("ModelName", carModel.getModelName());
-                values.put("ModelCode", carModel.getModelCode());
-                values.put("EngineVolume", carModel.getEngineVolume());
-                values.put("Gearbox", carModel.getGearbox().toString());
-                values.put("NumOfSeats", carModel.getNumOfSeats());
-                values.put("CarKind", carModel.getCarKind().toString());*/
+            String result =  PHP_Tools.POST(url, ConstantsAndEnums.CarModelToContentValues(carModel));
 
-            PHP_Tools.POST(url, ConstantsAndEnums.CarModelToContentValues(carModel));
+            long id = Long.parseLong(result);
+            if (id > 0)
+                SetUpdate();
+            printLog("add carModel:\n" + result);
+
+            return id;
         }
         catch (Exception e)
         {
-            Log.w(ConstantsAndEnums.Log.APP_LOG, e.getMessage());
+            printLog("addCarModel Exception:\n" + e);
+            return -1;
         }
     }
 
 
     @Override
-    public void addBranch(Branch branch)
+    public long addBranch(Branch branch)
     {
         try
         {
             String url = WEB_URL + "/add_branch.php";
 
-             /* final ContentValues values = new ContentValues();
+            String result =  PHP_Tools.POST(url, ConstantsAndEnums.BranchToContentValues(branch));
 
-                values.put("BranchAddress", branch.getBranchAddress());
-                values.put("CapacityOfCar", branch.getCapacityOfCar());
-                values.put("BranchNum", branch.getBranchNum());
-                values.put("AdministratorName", branch.getAdministratorName());*/
+            long id = Long.parseLong(result);
+            if (id > 0)
+                SetUpdate();
+            printLog("add Branch:\n" + result);
 
-
-            PHP_Tools.POST(url, ConstantsAndEnums.BranchToContentValues(branch));
+            return id;
         }
         catch (Exception e)
         {
-            Log.w(ConstantsAndEnums.Log.APP_LOG, e.getMessage());
+            printLog("addBranch Exception:\n" + e);
+            return -1;
         }
     }
 
     @Override
-    public void addOrder(Order order) {
+    public long addOrder(Order order) {
+        try
+        {
+            String url = WEB_URL + "/add_order.php";
 
+            String result =  PHP_Tools.POST(url, ConstantsAndEnums.OrderToContentValues(order));
+
+            long id = Long.parseLong(result);
+            if (id > 0)
+                SetUpdate();
+            printLog("add order:\n" + result);
+
+            return id;
+        }
+        catch (Exception e)
+        {
+            printLog("addOrder Exception:\n" + e);
+            return -1;
+        }
     }
 
     //////////////////////////////////////////////////////

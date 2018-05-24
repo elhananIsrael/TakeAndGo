@@ -48,22 +48,27 @@ public class ListsDataSource implements DataSource {
     }
 
     @Override
-    public void addCustomer(Customer customer) {
+    public long addCustomer(Customer customer) {
         customers.add( customer );
+        return Long.parseLong(customer.getId());
     }
-    public void addCar(Car car) {
+    public long addCar(Car car) {
         cars.add( car );
+        return Long.parseLong(car.getLicenseNumber());
     }
-    public void addCarModel(CarModel carModel) {
+    public long addCarModel(CarModel carModel) {
         carModels.add( carModel );
+        return Long.parseLong(carModel.getModelCode());
     }
-    public void addBranch(Branch branch) {
+    public long addBranch(Branch branch) {
         branches.add( branch );
+        return Long.parseLong(branch.getBranchNum());
     }
 
     @Override
-    public void addOrder(Order order) {
+    public long addOrder(Order order) {
         orders.add(order);
+        return Long.parseLong(order.getOrderNum());
     }
 
     @Override

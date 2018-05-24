@@ -6,6 +6,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Branch;
+import com.example.yyblumerandeiheller.takeandgo.model.entities.Order;
 
 public class ListsDataSource implements DataSource {
 
@@ -13,6 +14,8 @@ public class ListsDataSource implements DataSource {
     protected ArrayList<Car> cars;
     protected ArrayList<CarModel> carModels;
     protected ArrayList<Branch> branches;
+    protected ArrayList<Order> orders;
+
 
 
     public ArrayList<Customer> getCustomers() {
@@ -31,11 +34,17 @@ public class ListsDataSource implements DataSource {
         return branches;
     }
 
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+
     public ListsDataSource() {
         customers = new ArrayList<>();
         cars = new ArrayList<>();
         carModels = new ArrayList<>();
         branches = new ArrayList<>();
+        orders=new ArrayList<>();
     }
 
     @Override
@@ -50,6 +59,11 @@ public class ListsDataSource implements DataSource {
     }
     public void addBranch(Branch branch) {
         branches.add( branch );
+    }
+
+    @Override
+    public void addOrder(Order order) {
+        orders.add(order);
     }
 
     @Override
@@ -84,6 +98,13 @@ public class ListsDataSource implements DataSource {
         return null;    }
 
     @Override
+    public Order isExistsOrder(String orderNum) {
+        for( Order order : orders)
+            if (order.getOrderNum().equals( orderNum ))
+                return  order;
+        return null;    }
+
+    @Override
     public ArrayList<Customer> allCustomers() {
         return this.customers;
     }
@@ -101,5 +122,10 @@ public class ListsDataSource implements DataSource {
     @Override
     public ArrayList<Branch> allBranches() {
         return this.branches;
+    }
+
+    @Override
+    public ArrayList<Order> allOrders() {
+        return this.orders;
     }
 }

@@ -9,6 +9,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.entities.Branch;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Customer;
+import com.example.yyblumerandeiheller.takeandgo.model.entities.Order;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
 import org.json.JSONArray;
@@ -145,6 +146,11 @@ public class MySQL_DB_manager implements DataSource {
         }
     }
 
+    @Override
+    public void addOrder(Order order) {
+
+    }
+
     //////////////////////////////////////////////////////
 
 
@@ -166,7 +172,10 @@ public class MySQL_DB_manager implements DataSource {
         return null;
     }
 
-
+    @Override
+    public Order isExistsOrder(String orderNum) {
+        return null;
+    }
 
 
     @Override
@@ -285,6 +294,11 @@ public class MySQL_DB_manager implements DataSource {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    @Override
+    public ArrayList<Order> allOrders() {
         return null;
     }
 }

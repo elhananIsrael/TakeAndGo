@@ -32,11 +32,13 @@ public class FactoryMethod
     }
 
     public static  DataSource getDataSource(Type type){
-        switch (type){
+        switch (type)
+        {
             case Lists:
                 return dataSourceInstance;
             case MySQL:
-                return new MySQL_DB_manager();        }
+                return new MySQL_DB_manager();
+        }
         return myDataSourceInstance;
     }
 

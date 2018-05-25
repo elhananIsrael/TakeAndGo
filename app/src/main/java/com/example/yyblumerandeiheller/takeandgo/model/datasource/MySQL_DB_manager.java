@@ -20,7 +20,9 @@ import java.util.ArrayList;
 
 public class MySQL_DB_manager implements DataSource
 {
-    private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent";
+    private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent/%E2%80%8F%E2%80%8F";
+
+    // private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent";
 
     private boolean updateFlag = false;
 
@@ -116,7 +118,7 @@ public class MySQL_DB_manager implements DataSource
     {
         try
         {
-            String url = WEB_URL + "/add_branch.php";
+            String url = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent" + "/add_branch.php";
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.BranchToContentValues(branch));
 

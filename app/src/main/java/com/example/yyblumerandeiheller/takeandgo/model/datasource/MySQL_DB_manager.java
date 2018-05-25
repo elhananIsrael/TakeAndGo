@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class MySQL_DB_manager implements DataSource
 {
-    private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent/%E2%80%8F%E2%80%8F";
+    private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent";
 
     // private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent";
 
@@ -48,7 +48,7 @@ public class MySQL_DB_manager implements DataSource
     {
         try
         {
-            String url = WEB_URL + "/add_customer.php";
+            String url = WEB_URL + "/%E2%80%8F%E2%80%8Fadd_customer.php";
 
             String result =PHP_Tools.POST(url, ConstantsAndEnums.CustomerToContentValues(customer));
             long id = Long.parseLong(result);
@@ -69,7 +69,7 @@ public class MySQL_DB_manager implements DataSource
     public long addCar(Car car)
     {
         try {
-            String url = WEB_URL + "/add_car.php";
+            String url = WEB_URL + "/%E2%80%8F%E2%80%8Fadd_car.php";
 
             String result = PHP_Tools.POST(url, ConstantsAndEnums.CarToContentValues(car));
 
@@ -94,7 +94,7 @@ public class MySQL_DB_manager implements DataSource
     {
         try
         {
-            String url = WEB_URL + "/add_car_model.php";
+            String url = WEB_URL + "/%E2%80%8F%E2%80%8Fadd_car_model.php";
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.CarModelToContentValues(carModel));
 
@@ -118,7 +118,7 @@ public class MySQL_DB_manager implements DataSource
     {
         try
         {
-            String url = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent" + "/add_branch.php";
+            String url = WEB_URL + "/add_branch.php";
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.BranchToContentValues(branch));
 
@@ -140,7 +140,7 @@ public class MySQL_DB_manager implements DataSource
     public long addOrder(Order order) {
         try
         {
-            String url = WEB_URL + "/add_order.php";
+            String url = WEB_URL + "/%E2%80%8F%E2%80%8Fadd_order.php";
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.OrderToContentValues(order));
 
@@ -194,7 +194,7 @@ public class MySQL_DB_manager implements DataSource
 
         try
         {
-            String str = PHP_Tools.GET(WEB_URL + "/getCustomers.php");
+            String str = PHP_Tools.GET(WEB_URL + "/%E2%80%8F%E2%80%8FgetCustomers.php");
             JSONArray array = new JSONObject(str).getJSONArray("Customers");
 
             for (int i = 0; i < array.length(); i++)
@@ -225,7 +225,7 @@ public class MySQL_DB_manager implements DataSource
 
         try {
 
-            String str = PHP_Tools.GET(WEB_URL + "/getCars.php");
+            String str = PHP_Tools.GET(WEB_URL + "/%E2%80%8F%E2%80%8FgetCars.php");
             JSONArray array = new JSONObject(str).getJSONArray("Cars");
 
 
@@ -255,7 +255,7 @@ public class MySQL_DB_manager implements DataSource
         try
         {
 
-            String str = PHP_Tools.GET(WEB_URL + "/getCarModels.php");
+            String str = PHP_Tools.GET(WEB_URL + "/%E2%80%8F%E2%80%8FgetCarModels.php");
             JSONArray array = new JSONObject(str).getJSONArray("CarModels");
 
 
@@ -287,7 +287,7 @@ public class MySQL_DB_manager implements DataSource
         try
         {
 
-            String str = PHP_Tools.GET(WEB_URL + "/getBranches.php");
+            String str = PHP_Tools.GET(WEB_URL + "/%E2%80%8F%E2%80%8FgetBranches.php");
             JSONArray array = new JSONObject(str).getJSONArray("Branches");
 
             for (int i = 0; i < array.length(); i++) {
@@ -314,7 +314,7 @@ public class MySQL_DB_manager implements DataSource
 
         try
         {
-            String str = PHP_Tools.GET(WEB_URL + "/getOrders.php");
+            String str = PHP_Tools.GET(WEB_URL + "/%E2%80%8F%E2%80%8FgetOrders.php");
             JSONArray array = new JSONObject(str).getJSONArray("Orders");
 
             for (int i = 0; i < array.length(); i++)

@@ -58,6 +58,18 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="181dp" />
 
+
+        <Button
+            android:id="@+id/PrintLists"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:onClick="printListBtnClick"
+            android:text="הדפסת רשימות"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="181dp" />
+
+
     </LinearLayout>
 
 

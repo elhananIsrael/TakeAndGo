@@ -15,9 +15,7 @@ public class Branch
         this.administratorName=administratorName;
     }
 
-    public Branch() {
-
-    }
+    public Branch() { }
 
     public String getBranchAddress() {
         return branchAddress;
@@ -31,13 +29,9 @@ public class Branch
         return capacityOfCar;
     }
 
-    public void setCapacityOfCar(int capacityOfCar) {
-        this.capacityOfCar = capacityOfCar;
-    }
+    public void setCapacityOfCar(int capacityOfCar) { this.capacityOfCar = capacityOfCar; }
 
-    public String getBranchNum() {
-        return branchNum;
-    }
+    public String getBranchNum() { return branchNum; }
 
     public void setBranchNum(String branchNum) {
         this.branchNum = branchNum;
@@ -47,8 +41,13 @@ public class Branch
         return administratorName;
     }
 
-    public void setAdministratorName(String administratorName) {
-        this.administratorName = administratorName;
+    public void setAdministratorName(String administratorName) { this.administratorName = administratorName; }
+
+
+    public void ToString()
+    {
+        System.out.println("\n"+branchAddress +"\n"+capacityOfCar+"\n"+branchNum+"\n"+administratorName+"\n");
     }
+
 
 }

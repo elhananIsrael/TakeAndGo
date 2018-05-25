@@ -71,4 +71,12 @@ public class CarModel
     public carKind getCarKind(){return carKind;}
 
     public void setCarKind(carKind carKind){this.carKind=carKind;}
+
+
+
+    public void ToString()
+    {
+        System.out.println("\n"+companyName +"\n"+modelName+"\n"+modelCode+"\n"+engineVolume+"\n"+gearbox +"\n"+numOfSeats+"\n"+carKind+"\n");
+    }
+
 }

@@ -69,4 +69,12 @@ public class Car
     public boolean getBusy(){return busy;}
 
     public void setBusy(boolean busy){this.busy=busy;}
+
+
+
+    public void ToString()
+    {
+        System.out.println("\n"+modelCode +"\n"+productionDate+"\n"+mileage+"\n"+licenseNumber+"\n"+homeBranch +"\n"+averageCostPerDay+"\n"+busy+"\n");
+    }
+
 }

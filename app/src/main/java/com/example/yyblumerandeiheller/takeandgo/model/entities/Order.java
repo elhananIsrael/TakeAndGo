@@ -126,4 +126,11 @@ public class Order {
     public void setOrderNum(String orderNum) {
         this.orderNum = orderNum;
     }
+
+
+    public void ToString()
+    {
+        System.out.println("\n"+customerNum +"\n"+modeOfOrder+"\n"+carNumber+"\n"+rentStartDate+"\n"+rentEndDate +"\n"+kilometresAtStart+"\n"+kilometresAtEnd+"\n"+isInsertDelek+"\n"+howMuchDelekInsert+"\n"+howMuchNeedPay+"\n"+orderNum+"\n");
+    }
+
 }

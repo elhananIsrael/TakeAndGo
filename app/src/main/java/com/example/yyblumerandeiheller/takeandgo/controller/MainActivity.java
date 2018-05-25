@@ -68,4 +68,15 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
         }
 
 
-}
+        public void printListBtnClick(View view) {
+            try {
+                startActivity( new Intent( MainActivity.this,PrintLists.class ) );
+            } catch (Exception e) {
+                Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
+
+    }

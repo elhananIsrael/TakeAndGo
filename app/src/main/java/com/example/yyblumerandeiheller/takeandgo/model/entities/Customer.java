@@ -68,4 +68,11 @@ public class Customer
     public void setCreditCardNum(String creditCardNum) {
         this.creditCardNum = creditCardNum;
     }
+
+
+    public void ToString()
+    {
+        System.out.println("\n"+id +"\n"+firstName+"\n"+lastName+"\n"+phoneNum+"\n"+email +"\n"+creditCardNum+"\n");
+    }
+
 }

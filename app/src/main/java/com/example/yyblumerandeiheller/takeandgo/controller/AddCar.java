@@ -76,7 +76,7 @@ public class AddCar extends AppCompatActivity {
                 protected void onPostExecute(Long idResult) {
                     super.onPostExecute(idResult);
                     if (idResult > 0)
-                        Toast.makeText(getBaseContext(), "insert id: " + idResult, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "insert car with License Number: " + LicenseNumber.getText().toString(), Toast.LENGTH_LONG).show();
                 }
 
                 @Override

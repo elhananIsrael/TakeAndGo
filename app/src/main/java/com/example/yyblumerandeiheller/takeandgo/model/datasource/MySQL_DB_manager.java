@@ -50,8 +50,9 @@ public class MySQL_DB_manager implements DataSource
             String url = WEB_URL + "/%E2%80%8F%E2%80%8Fadd_customer.php";
 
             String result =PHP_Tools.POST(url, ConstantsAndEnums.CustomerToContentValues(customer));
+            String temp="INSERTED OK";
             long id=-1;
-            if(result=="INSERTED OK")
+            if(result.equals(temp))
              id=1;
             if (id > 0)
                 SetUpdate();
@@ -74,8 +75,9 @@ public class MySQL_DB_manager implements DataSource
 
             String result = PHP_Tools.POST(url, ConstantsAndEnums.CarToContentValues(car));
 
+            String temp="INSERTED OK";
             long id=-1;
-            if(result=="INSERTED OK")
+            if(result.equals(temp))
                 id=1;
 
             if (id > 0)
@@ -102,8 +104,9 @@ public class MySQL_DB_manager implements DataSource
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.CarModelToContentValues(carModel));
 
+            String temp="INSERTED OK";
             long id=-1;
-            if(result=="INSERTED OK")
+            if(result.equals(temp))
                 id=1;
 
             if (id > 0)
@@ -129,8 +132,9 @@ public class MySQL_DB_manager implements DataSource
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.BranchToContentValues(branch));
 
+            String temp="INSERTED OK";
             long id=-1;
-            if(result=="INSERTED OK")
+            if(result.equals(temp))
                 id=1;
 
             if (id > 0)
@@ -154,8 +158,9 @@ public class MySQL_DB_manager implements DataSource
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.OrderToContentValues(order));
 
+            String temp="INSERTED OK";
             long id=-1;
-            if(result=="INSERTED OK")
+            if(result.equals(temp))
                 id=1;
 
             if (id > 0)

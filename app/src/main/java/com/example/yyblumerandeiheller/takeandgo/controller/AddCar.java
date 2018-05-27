@@ -19,6 +19,7 @@ import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
 
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -51,23 +52,21 @@ public class AddCar extends AppCompatActivity {
             }
         });
 
-        Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels()));
+    //    Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels()));
 
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
+
     public void BtnAddCarClick(View view)
     {
         try
         {
-
-
             new AsyncTask<Void, Void, Long>() {
 
                 Car car = new Car(
                         Model.getSelectedItem().toString(),
-                        new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).parse(ProductionDate.getText().toString()),
+                        new Date(ProductionDate.getText().toString()),
                         LicenseNumber.getText().toString(),
                         Integer.parseInt(Mileage.getText().toString()),
                         HomeBranch.getText().toString(),

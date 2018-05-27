@@ -20,9 +20,8 @@ import java.util.ArrayList;
 
 public class MySQL_DB_manager implements DataSource
 {
-    private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent";
 
-    // private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent";
+    private static final String WEB_URL = "http://elhanani.vlab.jct.ac.il/TakeAndGo/carsRent";
 
     private boolean updateFlag = false;
 
@@ -51,7 +50,9 @@ public class MySQL_DB_manager implements DataSource
             String url = WEB_URL + "/%E2%80%8F%E2%80%8Fadd_customer.php";
 
             String result =PHP_Tools.POST(url, ConstantsAndEnums.CustomerToContentValues(customer));
-            long id = Long.parseLong(result);
+            long id=-1;
+            if(result=="INSERTED OK")
+             id=1;
             if (id > 0)
                 SetUpdate();
             printLog("add customer:\n" + result);
@@ -73,7 +74,10 @@ public class MySQL_DB_manager implements DataSource
 
             String result = PHP_Tools.POST(url, ConstantsAndEnums.CarToContentValues(car));
 
-            long id = Long.parseLong(result);
+            long id=-1;
+            if(result=="INSERTED OK")
+                id=1;
+
             if (id > 0)
                 SetUpdate();
             printLog("add car:\n" + result);
@@ -98,7 +102,10 @@ public class MySQL_DB_manager implements DataSource
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.CarModelToContentValues(carModel));
 
-            long id = Long.parseLong(result);
+            long id=-1;
+            if(result=="INSERTED OK")
+                id=1;
+
             if (id > 0)
                 SetUpdate();
             printLog("add carModel:\n" + result);
@@ -122,7 +129,10 @@ public class MySQL_DB_manager implements DataSource
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.BranchToContentValues(branch));
 
-            long id = Long.parseLong(result);
+            long id=-1;
+            if(result=="INSERTED OK")
+                id=1;
+
             if (id > 0)
                 SetUpdate();
             printLog("add Branch:\n" + result);
@@ -144,7 +154,10 @@ public class MySQL_DB_manager implements DataSource
 
             String result =  PHP_Tools.POST(url, ConstantsAndEnums.OrderToContentValues(order));
 
-            long id = Long.parseLong(result);
+            long id=-1;
+            if(result=="INSERTED OK")
+                id=1;
+
             if (id > 0)
                 SetUpdate();
             printLog("add order:\n" + result);
@@ -255,7 +268,7 @@ public class MySQL_DB_manager implements DataSource
         try
         {
 
-            String str = PHP_Tools.GET(WEB_URL + "/%E2%80%8F%E2%80%8FgetCarModels.php");
+            String str = PHP_Tools.GET(WEB_URL + "/getCarModels.php");
             JSONArray array = new JSONObject(str).getJSONArray("CarModels");
 
 

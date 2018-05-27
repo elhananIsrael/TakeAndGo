@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
@@ -18,7 +19,9 @@ import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
+import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -28,6 +31,21 @@ public class AddCar extends AppCompatActivity {
     CalendarView calendarView;
     Spinner Model;
     EditText ProductionDate, Mileage, LicenseNumber, HomeBranch, AverageCostPerDay ;
+    ArrayAdapter<String> carModelsAdapter;
+    static ArrayList<CarModel> carModelsSimpleList = null;
+    static ArrayList<String> carModelsCodeSimpleList = new ArrayList<String>();
+
+
+    public ArrayList<String> getALLCarModelsCode(ArrayList<CarModel> CarModelList )
+    {
+
+        ArrayList<String> temp=new ArrayList<>();
+        for (CarModel item : CarModelList)
+    {
+        temp.add(item.getModelCode());
+    }
+    return temp;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +60,7 @@ public class AddCar extends AppCompatActivity {
         HomeBranch = ((EditText) findViewById( R.id.HomeBranch));
         AverageCostPerDay = ((EditText) findViewById( R.id.AverageCostPerDay));
         calendarView =( (CalendarView)   findViewById( R.id.calendarView));
-
+        carModelsAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_spinner_item, carModelsCodeSimpleList);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener()
         {
             @Override
@@ -52,7 +70,42 @@ public class AddCar extends AppCompatActivity {
             }
         });
 
-    //    Model.setAdapter(new ArrayAdapter<CarModel>(this, android.R.layout.simple_spinner_item, FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels()));
+
+        new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... params) {
+
+                carModelsSimpleList= FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels();
+                return null;
+            }
+
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                try {
+                    if(carModelsCodeSimpleList == null){
+                        carModelsCodeSimpleList = new ArrayList<>( );
+                    }
+                super.onPostExecute(aVoid);
+                carModelsCodeSimpleList.clear();
+                carModelsCodeSimpleList.addAll( getALLCarModelsCode(carModelsSimpleList) );
+                carModelsAdapter.notifyDataSetChanged();
+                Model.setAdapter(carModelsAdapter);
+
+                } catch (Exception e) {
+                    Log.w(ConstantsAndEnums.Log.APP_LOG, e.getMessage() );
+                    Toast.makeText( AddCar.this, e.getMessage(), Toast.LENGTH_SHORT ).show();
+                }
+
+
+            }
+        }.execute();
+
+
+
+
+
 
     }
 

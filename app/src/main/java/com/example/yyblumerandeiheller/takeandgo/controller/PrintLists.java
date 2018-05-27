@@ -1,11 +1,10 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -48,40 +47,100 @@ public class PrintLists extends AppCompatActivity {
         try {
             switch (spinner.getSelectedItem().toString()) {
                 case "Branches":
-                    ArrayList<Branch> br = factory.allBranches();
-                    for (Branch item : br) {
-                        item.ToString();
-                    }
+
+                    new AsyncTask<Void, Void, Void>() {
+
+
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            ArrayList<Branch> br = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allBranches();
+                            for (Branch item : br) {
+                                item.ToString();
+                            }
+                            return null;
+
+                        }
+                    }.execute();
+
+
                     break;
 
                 case "Cars":
-                    ArrayList<Car> ca = factory.allCars();
-                    for (Car item : ca) {
-                        item.ToString();
-                    }
+
+                    new AsyncTask<Void, Void, Void>() {
+
+
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            ArrayList<Car> ca  = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCars();
+                            for (Car item : ca) {
+                                item.ToString();
+                            }
+                            return null;
+
+                        }
+                    }.execute();
+
+
                     break;
 
                 case "CarModels":
-                    ArrayList<CarModel> cm = factory.allCarModels();
-                    for (CarModel item : cm) {
-                        item.ToString();
-                    }
+
+                    new AsyncTask<Void, Void, Void>() {
+
+
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            ArrayList<CarModel> cm = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels();
+                            for (CarModel item : cm) {
+                                item.ToString();
+                            }
+                            return null;
+
+                        }
+                    }.execute();
+
+
                     break;
 
                 case "Customers":
-                    ArrayList<Customer> cu = factory.allCustomers();
-                    for (Customer item : cu) {
-                        item.ToString();
-                    }
+
+                    new AsyncTask<Void, Void, Void>() {
+
+
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            ArrayList<Customer> cu  = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCustomers();
+                            for (Customer item : cu) {
+                                item.ToString();
+                            }
+                            return null;
+
+                        }
+                    }.execute();
+
                     break;
 
                 case "Orders":
-                    ArrayList<Order> or = factory.allOrders();
-                    for (Order item : or) {
-                        item.ToString();
-                    }
+
+                    new AsyncTask<Void, Void, Void>() {
+
+
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            ArrayList<Order> or  = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allOrders();
+                            for (Order item : or) {
+                                item.ToString();
+                            }
+                            return null;
+
+                        }
+                    }.execute();
+
                     break;
             }
+
+
         }
         catch(Exception ex)
         {

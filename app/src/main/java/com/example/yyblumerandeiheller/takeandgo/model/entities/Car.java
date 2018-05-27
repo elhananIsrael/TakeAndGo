@@ -1,12 +1,12 @@
 package com.example.yyblumerandeiheller.takeandgo.model.entities;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 public class Car
 {
     protected String modelCode;
-    protected Date productionDate;
+    protected SimpleDateFormat productionDate;
     protected int mileage;
     protected String licenseNumber;
     protected String homeBranch;
@@ -14,9 +14,11 @@ public class Car
     protected boolean busy;
 
 
-    public Car(String modelCode, Date productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
+    public Car(){ }
+
+    public Car(String modelCode, SimpleDateFormat productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
     {
-        this.modelCode=modelCode;
+       this.modelCode=modelCode;
         this.productionDate=productionDate;
         this.licenseNumber=licenseNumber;
         this.mileage=mileage;
@@ -25,12 +27,10 @@ public class Car
         this.busy=false;
     }
 
-    public Car() {
-
-    }
 
 
-    public String getModelCode() {
+
+    public String getModelCode(){
         return this.modelCode;
     }
 
@@ -38,9 +38,9 @@ public class Car
         this.modelCode = modelCode;
     }
 
-    public Date getProductionDate(){ return productionDate;}
+    public SimpleDateFormat getProductionDate(){ return productionDate;}
 
-    public void setProductionDate(Date productionDate){ this.productionDate=productionDate;}
+    public void setProductionDate(SimpleDateFormat productionDate){ this.productionDate=productionDate;}
 
     public int getMileage() { return mileage; }
 

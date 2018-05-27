@@ -1,6 +1,6 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
-import android.icu.text.SimpleDateFormat;
+import java.text.SimpleDateFormat;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -66,7 +66,7 @@ public class AddCar extends AppCompatActivity {
 
                 Car car = new Car(
                         Model.getSelectedItem().toString(),
-                        new Date(ProductionDate.getText().toString()),
+                        new SimpleDateFormat(ProductionDate.getText().toString()),
                         LicenseNumber.getText().toString(),
                         Integer.parseInt(Mileage.getText().toString()),
                         HomeBranch.getText().toString(),

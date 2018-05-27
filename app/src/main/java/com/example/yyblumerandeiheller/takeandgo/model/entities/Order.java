@@ -1,5 +1,6 @@
 package com.example.yyblumerandeiheller.takeandgo.model.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums.orderMode;
 
@@ -9,8 +10,8 @@ public class Order {
     protected String customerNum;
     protected orderMode modeOfOrder;
     protected String carNumber;
-    protected Date rentStartDate;
-    protected Date rentEndDate;
+    protected SimpleDateFormat rentStartDate;
+    protected SimpleDateFormat rentEndDate;
     protected int kilometresAtStart;
     protected int kilometresAtEnd;
     protected boolean isInsertDelek;
@@ -18,8 +19,8 @@ public class Order {
     protected int howMuchNeedPay;
     protected String orderNum;
 
-    public Order(String customerNum, orderMode modeOfOrder, String carNumber, Date rentStartDate,
-                 Date rentEndDate, int kilometresAtStart, int kilometresAtEnd, boolean isInsertDelek,
+    public Order(String customerNum, orderMode modeOfOrder, String carNumber, SimpleDateFormat rentStartDate,
+                 SimpleDateFormat rentEndDate, int kilometresAtStart, int kilometresAtEnd, boolean isInsertDelek,
                  int howMuchDelekInsert, int howMuchNeedPay, String orderNum){
 
         this.customerNum = customerNum;
@@ -63,19 +64,19 @@ public class Order {
         this.carNumber = carNumber;
     }
 
-    public Date getRentStartDate() {
+    public SimpleDateFormat getRentStartDate() {
         return rentStartDate;
     }
 
-    public void setRentStartDate(Date rentStartDate) {
+    public void setRentStartDate(SimpleDateFormat rentStartDate) {
         this.rentStartDate = rentStartDate;
     }
 
-    public Date getRentEndDate() {
+    public SimpleDateFormat getRentEndDate() {
         return rentEndDate;
     }
 
-    public void setRentEndDate(Date rentEndDate) {
+    public void setRentEndDate(SimpleDateFormat rentEndDate) {
         this.rentEndDate = rentEndDate;
     }
 

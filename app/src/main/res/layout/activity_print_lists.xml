@@ -53,6 +53,12 @@
             android:layout_height="match_parent" />
     </TableLayout>
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="305dp"
+        android:layout_height="341dp"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="132dp" />
 
 
 </android.support.constraint.ConstraintLayout>

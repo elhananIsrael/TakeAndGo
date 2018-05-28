@@ -70,9 +70,9 @@ public class Customer
     }
 
 
-    public void ToString()
+    public String ToString()
     {
-        System.out.println("\n"+id +"\n"+firstName+"\n"+lastName+"\n"+phoneNum+"\n"+email +"\n"+creditCardNum+"\n");
+        return "\n"+id +"\n"+firstName+"\n"+lastName+"\n"+phoneNum+"\n"+email +"\n"+creditCardNum+"\n";
     }
 
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
@@ -24,6 +25,7 @@ public class PrintLists extends AppCompatActivity {
     MySQL_DB_manager factory=new MySQL_DB_manager();
 
     Spinner spinner;
+    TextView textView4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,8 @@ public class PrintLists extends AppCompatActivity {
         setContentView(R.layout.activity_print_lists);
 
         spinner=(Spinner) findViewById(R.id.spinner);
+        textView4=findViewById(R.id.textView4);
+
         ArrayList<String> menu=new ArrayList<>();
         menu.add("Branches");
         menu.add("Cars");
@@ -54,9 +58,11 @@ public class PrintLists extends AppCompatActivity {
                         @Override
                         protected Void doInBackground(Void... params) {
                             ArrayList<Branch> br = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allBranches();
+                            String temp="";
                             for (Branch item : br) {
-                                item.ToString();
+                                temp+=item.ToString();
                             }
+                            textView4.setText(temp);
                             return null;
 
                         }
@@ -73,9 +79,11 @@ public class PrintLists extends AppCompatActivity {
                         @Override
                         protected Void doInBackground(Void... params) {
                             ArrayList<Car> ca  = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCars();
+                            String temp="";
                             for (Car item : ca) {
-                                item.ToString();
+                                temp+=item.ToString();
                             }
+                            textView4.setText(temp);
                             return null;
 
                         }
@@ -92,9 +100,11 @@ public class PrintLists extends AppCompatActivity {
                         @Override
                         protected Void doInBackground(Void... params) {
                             ArrayList<CarModel> cm = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels();
+                            String temp="";
                             for (CarModel item : cm) {
-                                item.ToString();
+                                temp+=item.ToString();
                             }
+                            textView4.setText(temp);
                             return null;
 
                         }
@@ -111,9 +121,11 @@ public class PrintLists extends AppCompatActivity {
                         @Override
                         protected Void doInBackground(Void... params) {
                             ArrayList<Customer> cu  = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCustomers();
+                            String temp="";
                             for (Customer item : cu) {
-                                item.ToString();
+                                temp+=item.ToString();
                             }
+                            textView4.setText(temp);
                             return null;
 
                         }
@@ -129,9 +141,11 @@ public class PrintLists extends AppCompatActivity {
                         @Override
                         protected Void doInBackground(Void... params) {
                             ArrayList<Order> or  = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allOrders();
+                            String temp="";
                             for (Order item : or) {
-                                item.ToString();
+                                temp+=item.ToString();
                             }
+                            textView4.setText(temp);
                             return null;
 
                         }

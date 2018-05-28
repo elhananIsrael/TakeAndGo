@@ -72,9 +72,9 @@ public class Car
 
 
 
-    public void ToString()
+    public String ToString()
     {
-        System.out.println("\n"+modelCode +"\n"+productionDate+"\n"+mileage+"\n"+licenseNumber+"\n"+homeBranch +"\n"+averageCostPerDay+"\n"+busy+"\n");
+        return "\n"+modelCode +"\n"+productionDate+"\n"+mileage+"\n"+licenseNumber+"\n"+homeBranch +"\n"+averageCostPerDay+"\n"+busy+"\n";
     }
 
 }

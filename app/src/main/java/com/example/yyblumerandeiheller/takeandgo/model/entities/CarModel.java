@@ -74,9 +74,9 @@ public class CarModel
 
 
 
-    public void ToString()
+    public String ToString()
     {
-        System.out.println("\n"+companyName +"\n"+modelName+"\n"+modelCode+"\n"+engineVolume+"\n"+gearbox +"\n"+numOfSeats+"\n"+carKind+"\n");
+        return "\n"+companyName +"\n"+modelName+"\n"+modelCode+"\n"+engineVolume+"\n"+gearbox +"\n"+numOfSeats+"\n"+carKind+"\n";
     }
 
 }

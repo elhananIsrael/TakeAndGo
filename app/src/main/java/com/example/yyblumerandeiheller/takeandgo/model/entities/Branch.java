@@ -44,9 +44,9 @@ public class Branch
     public void setAdministratorName(String administratorName) { this.administratorName = administratorName; }
 
 
-    public void ToString()
+    public String ToString()
     {
-        System.out.println("\n"+branchAddress +"\n"+capacityOfCar+"\n"+branchNum+"\n"+administratorName+"\n");
+        return  "\n"+branchAddress +"\n"+capacityOfCar+"\n"+branchNum+"\n"+administratorName+"\n";
     }
 
 

@@ -1,6 +1,5 @@
 package com.example.yyblumerandeiheller.takeandgo.controller;
 
-import java.text.SimpleDateFormat;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,8 +16,7 @@ import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
-import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
-import com.example.yyblumerandeiheller.takeandgo.model.entities.CarModel;
+import com.example.yyblumerandeiheller.takeandgo.model.entities.*;
 import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
 
 import java.util.ArrayList;
@@ -34,6 +32,9 @@ public class AddCar extends AppCompatActivity {
     ArrayAdapter<String> carModelsAdapter;
     static ArrayList<CarModel> carModelsSimpleList = null;
     static ArrayList<String> carModelsCodeSimpleList = new ArrayList<String>();
+    String dayOfManth= new String();
+    String Manth= new String();
+
 
 
     public ArrayList<String> getALLCarModelsCode(ArrayList<CarModel> CarModelList )
@@ -45,6 +46,22 @@ public class AddCar extends AppCompatActivity {
         temp.add(item.getModelCode());
     }
     return temp;
+    }
+
+    public String returnTwoDigitNo(int number)
+    {
+        String twoDigitNo = "0";
+        int length = String.valueOf(number).length();
+        if(length == 1)
+        {
+            twoDigitNo = twoDigitNo+number;
+        }
+        if(length == 2)
+        {
+            twoDigitNo = Integer.toString(number);
+        }
+
+        return twoDigitNo;
     }
 
     @Override
@@ -64,9 +81,12 @@ public class AddCar extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener()
         {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                Toast.makeText(AddCar.this, "נבחר התאריך: " + dayOfMonth + "/" + (month+1) + "/" + year  , Toast.LENGTH_LONG).show();
-                ProductionDate.setText(dayOfMonth + "/" + (month+1) + "/" + year);
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int DayOfMonth) {
+                dayOfManth=returnTwoDigitNo(DayOfMonth);
+                Manth=returnTwoDigitNo(month+1);
+                Toast.makeText(AddCar.this, "נבחר התאריך: " + dayOfManth + "/" + Manth + "/" + year  , Toast.LENGTH_LONG).show();
+                ProductionDate.setText(year+"-"+ dayOfManth +"-" + Manth  );
+                //1900-05-02
             }
         });
 
@@ -119,7 +139,7 @@ public class AddCar extends AppCompatActivity {
 
                 Car car = new Car(
                         Model.getSelectedItem().toString(),
-                        new SimpleDateFormat(ProductionDate.getText().toString()),
+                        ProductionDate.getText().toString(),
                         LicenseNumber.getText().toString(),
                         Integer.parseInt(Mileage.getText().toString()),
                         HomeBranch.getText().toString(),

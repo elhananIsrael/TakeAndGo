@@ -10,8 +10,8 @@ public class Order {
     protected String customerNum;
     protected orderMode modeOfOrder;
     protected String carNumber;
-    protected SimpleDateFormat rentStartDate;
-    protected SimpleDateFormat rentEndDate;
+    protected String rentStartDate;
+    protected String rentEndDate;
     protected int kilometresAtStart;
     protected int kilometresAtEnd;
     protected boolean isInsertDelek;
@@ -19,8 +19,8 @@ public class Order {
     protected int howMuchNeedPay;
     protected String orderNum;
 
-    public Order(String customerNum, orderMode modeOfOrder, String carNumber, SimpleDateFormat rentStartDate,
-                 SimpleDateFormat rentEndDate, int kilometresAtStart, int kilometresAtEnd, boolean isInsertDelek,
+    public Order(String customerNum, orderMode modeOfOrder, String carNumber, String rentStartDate,
+                 String rentEndDate, int kilometresAtStart, int kilometresAtEnd, boolean isInsertDelek,
                  int howMuchDelekInsert, int howMuchNeedPay, String orderNum){
 
         this.customerNum = customerNum;
@@ -64,19 +64,19 @@ public class Order {
         this.carNumber = carNumber;
     }
 
-    public SimpleDateFormat getRentStartDate() {
+    public String getRentStartDate() {
         return rentStartDate;
     }
 
-    public void setRentStartDate(SimpleDateFormat rentStartDate) {
+    public void setRentStartDate(String rentStartDate) {
         this.rentStartDate = rentStartDate;
     }
 
-    public SimpleDateFormat getRentEndDate() {
+    public String getRentEndDate() {
         return rentEndDate;
     }
 
-    public void setRentEndDate(SimpleDateFormat rentEndDate) {
+    public void setRentEndDate(String rentEndDate) {
         this.rentEndDate = rentEndDate;
     }
 

@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 public class Car
 {
     protected String modelCode;
-    protected SimpleDateFormat productionDate;
+    protected String productionDate;
     protected int mileage;
     protected String licenseNumber;
     protected String homeBranch;
@@ -16,7 +16,7 @@ public class Car
 
     public Car(){ }
 
-    public Car(String modelCode, SimpleDateFormat productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
+    public Car(String modelCode, String productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
     {
        this.modelCode=modelCode;
         this.productionDate=productionDate;
@@ -38,9 +38,9 @@ public class Car
         this.modelCode = modelCode;
     }
 
-    public SimpleDateFormat getProductionDate(){ return productionDate;}
+    public String getProductionDate(){ return productionDate;}
 
-    public void setProductionDate(SimpleDateFormat productionDate){ this.productionDate=productionDate;}
+    public void setProductionDate(String productionDate){ this.productionDate=productionDate;}
 
     public int getMileage() { return mileage; }
 

@@ -51,7 +51,7 @@ public class ConstantsAndEnums {
 
 
     public static class CarConst {
-        public static final String MODEL_CODE = "ModelCode";
+        public static final String MODEL_CODE = "Model";
         public static final String PRODUCTION_DATE = "ProductionDate";
         public static final String MILEAGE = "Mileage";
         public static final String LICENSE_NUMBER = "LicenseNumber";
@@ -134,7 +134,7 @@ public class ConstantsAndEnums {
     public static Car ContentValuesToCar(ContentValues contentValues) {
         Car car = new Car();
         car.setModelCode(contentValues.getAsString(CarConst.MODEL_CODE));
-        car.setProductionDate( new SimpleDateFormat( contentValues.getAsString(CarConst.PRODUCTION_DATE)));
+        car.setProductionDate(contentValues.getAsString(CarConst.PRODUCTION_DATE));
         car.setMileage(contentValues.getAsInteger(CarConst.MILEAGE));
         car.setLicenseNumber(contentValues.getAsString(CarConst.LICENSE_NUMBER));
         car.setHomeBranch(contentValues.getAsString(CarConst.HOME_BRANCH));
@@ -214,8 +214,8 @@ public class ConstantsAndEnums {
         order.setCustomerNum(contentValues.getAsString(OrderConst.CUSTOMER_NUM));
         order.setModeOfOrder(orderMode.valueOf(contentValues.getAsString(OrderConst.MODE_OF_ORDER)));
         order.setCarNumber(contentValues.getAsString(OrderConst.CAR_NUMBER));
-        order.setRentStartDate(new SimpleDateFormat(contentValues.getAsString(OrderConst.RENT_START_DATE)));
-        order.setRentEndDate(new SimpleDateFormat(contentValues.getAsString(OrderConst.RENT_END_DATE)));
+        order.setRentStartDate(contentValues.getAsString(OrderConst.RENT_START_DATE));
+        order.setRentEndDate(contentValues.getAsString(OrderConst.RENT_END_DATE));
         order.setKilometresAtStart(contentValues.getAsInteger(OrderConst.KILOMETERES_AT_START));
         order.setKilometresAtEnd(contentValues.getAsInteger(OrderConst.KILOMETERES_AT_END));
         order.setIsInsertDelek(contentValues.getAsBoolean(OrderConst.IS_INSERT_DELEK));

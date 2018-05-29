@@ -33,7 +33,7 @@ public class PrintLists extends AppCompatActivity {
         setContentView(R.layout.activity_print_lists);
 
         spinner=(Spinner) findViewById(R.id.spinner);
-        textView4=findViewById(R.id.textView4);
+        textView4=(TextView)findViewById(R.id.textView4);
 
         ArrayList<String> menu=new ArrayList<>();
         menu.add("Branches");

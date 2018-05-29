@@ -32,8 +32,8 @@ public class AddCar extends AppCompatActivity {
     ArrayAdapter<String> carModelsAdapter;
     static ArrayList<CarModel> carModelsSimpleList = null;
     static ArrayList<String> carModelsCodeSimpleList = new ArrayList<String>();
-    String dayOfManth= new String();
-    String Manth= new String();
+    String dayOfMonth= new String();
+    String Month= new String();
 
 
 
@@ -82,10 +82,10 @@ public class AddCar extends AppCompatActivity {
         {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int DayOfMonth) {
-                dayOfManth=returnTwoDigitNo(DayOfMonth);
-                Manth=returnTwoDigitNo(month+1);
-                Toast.makeText(AddCar.this, "נבחר התאריך: " + dayOfManth + "/" + Manth + "/" + year  , Toast.LENGTH_LONG).show();
-                ProductionDate.setText(year+"-"+ dayOfManth +"-" + Manth  );
+                dayOfMonth=returnTwoDigitNo(DayOfMonth);
+                Month=returnTwoDigitNo(month+1);
+                Toast.makeText(AddCar.this, "נבחר התאריך: " + dayOfMonth + "/" + Month + "/" + year  , Toast.LENGTH_LONG).show();
+                ProductionDate.setText(year+"-"+ dayOfMonth +"-" + Month  );
                 //1900-05-02
             }
         });

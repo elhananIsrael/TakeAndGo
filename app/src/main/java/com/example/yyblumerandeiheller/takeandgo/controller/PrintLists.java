@@ -26,6 +26,7 @@ public class PrintLists extends AppCompatActivity {
 
     Spinner spinner;
     TextView textView4;
+     static String temp=new String("");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,20 +53,30 @@ public class PrintLists extends AppCompatActivity {
             switch (spinner.getSelectedItem().toString()) {
                 case "Branches":
 
-                    new AsyncTask<Void, Void, Void>() {
+                    temp="";
+
+                new  AsyncTask<Void, Void, Void>() {
 
 
-                        @Override
+                    @Override
                         protected Void doInBackground(Void... params) {
                             ArrayList<Branch> br = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allBranches();
-                            String temp="";
                             for (Branch item : br) {
                                 temp+=item.ToString();
                             }
-                            textView4.setText(temp);
+
                             return null;
 
                         }
+
+                    @Override
+                    protected void onPostExecute(Void aVoid) {
+                        super.onPostExecute(aVoid);
+                        textView4.setText(temp);
+
+                    }
+
+
                     }.execute();
 
 
@@ -73,20 +84,31 @@ public class PrintLists extends AppCompatActivity {
 
                 case "Cars":
 
+                    temp="";
+
+
                     new AsyncTask<Void, Void, Void>() {
 
 
                         @Override
                         protected Void doInBackground(Void... params) {
                             ArrayList<Car> ca  = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCars();
-                            String temp="";
                             for (Car item : ca) {
                                 temp+=item.ToString();
                             }
-                            textView4.setText(temp);
+
                             return null;
 
                         }
+
+
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                            textView4.setText(temp);
+
+                        }
+
                     }.execute();
 
 
@@ -94,20 +116,31 @@ public class PrintLists extends AppCompatActivity {
 
                 case "CarModels":
 
+                    temp="";
+
+
                     new AsyncTask<Void, Void, Void>() {
 
 
                         @Override
                         protected Void doInBackground(Void... params) {
                             ArrayList<CarModel> cm = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels();
-                            String temp="";
                             for (CarModel item : cm) {
                                 temp+=item.ToString();
                             }
-                            textView4.setText(temp);
+
                             return null;
 
                         }
+
+                        @Override
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                            textView4.setText(temp);
+
+                        }
+
+
                     }.execute();
 
 
@@ -115,40 +148,59 @@ public class PrintLists extends AppCompatActivity {
 
                 case "Customers":
 
+                    temp="";
+
+
                     new AsyncTask<Void, Void, Void>() {
 
 
                         @Override
                         protected Void doInBackground(Void... params) {
                             ArrayList<Customer> cu  = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCustomers();
-                            String temp="";
                             for (Customer item : cu) {
                                 temp+=item.ToString();
                             }
-                            textView4.setText(temp);
-                            return null;
+
+                             return null;
 
                         }
+
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                            textView4.setText(temp);
+
+                        }
+
                     }.execute();
 
                     break;
 
                 case "Orders":
 
+                    temp="";
+
+
                     new AsyncTask<Void, Void, Void>() {
 
 
                         @Override
                         protected Void doInBackground(Void... params) {
+
                             ArrayList<Order> or  = FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allOrders();
-                            String temp="";
                             for (Order item : or) {
                                 temp+=item.ToString();
                             }
-                            textView4.setText(temp);
+
                             return null;
 
                         }
+
+                        protected void onPostExecute(Void aVoid) {
+                            super.onPostExecute(aVoid);
+                            textView4.setText(temp);
+
+                        }
+
                     }.execute();
 
                     break;

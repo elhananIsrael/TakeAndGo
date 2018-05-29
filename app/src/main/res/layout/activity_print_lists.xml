@@ -58,6 +58,7 @@
             android:layout_width="305dp"
             android:layout_height="341dp"
             tools:layout_editor_absoluteX="42dp"
+            android:gravity="bottom"
             tools:layout_editor_absoluteY="132dp" />
 
         <TableRow

@@ -3,6 +3,7 @@ package com.example.yyblumerandeiheller.takeandgo.controller;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -35,6 +36,8 @@ public class PrintLists extends AppCompatActivity {
 
         spinner=(Spinner) findViewById(R.id.spinner);
         textView4=(TextView)findViewById(R.id.textView4);
+        textView4.setMovementMethod(new ScrollingMovementMethod());
+
 
         ArrayList<String> menu=new ArrayList<>();
         menu.add("Branches");

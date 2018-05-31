@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="אנא הכנס מספר כרטיס אשראי"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <Button
             android:id="@+id/btnAddUser"

@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="אנא הכנס קילומטראז'"
-                android:inputType="textPersonName" />
+                android:inputType="numberSigned|numberDecimal" />
 
 
             <EditText
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="אנא הכנס מספר רכב"
-                android:inputType="textPersonName" />
+                android:inputType="number|numberSigned|numberDecimal" />
 
             <EditText
                 android:id="@+id/HomeBranch"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="אנא הכנס את מספר הסניף של המכונית"
-                android:inputType="textPersonName" />
+                android:inputType="numberSigned|numberDecimal" />
 
             <Switch
                 android:id="@+id/busySwitch"
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="אנא הכנס ממוצע מחיר ליום"
-                android:inputType="textPersonName" />
+                android:inputType="number|numberSigned|numberDecimal" />
 
 
             <EditText

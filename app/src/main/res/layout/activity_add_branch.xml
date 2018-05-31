@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="מספר סניף"
-            android:inputType="textPersonName" />
+            android:inputType="number|numberSigned|numberDecimal" />
 
         <EditText
             android:id="@+id/BranchAddress"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="כתובת סניף"
-            android:inputType="textPersonName" />
+            android:inputType="textPostalAddress" />
 
         <EditText
             android:id="@+id/Capacity"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="מספר מקומות חניה"
-            android:inputType="textPersonName" />
+            android:inputType="number|numberSigned|numberDecimal" />
 
         <EditText
             android:id="@+id/AdminName"

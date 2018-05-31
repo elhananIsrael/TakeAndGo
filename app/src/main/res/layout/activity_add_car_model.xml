@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="אנא הכנס קוד דגם"
-            android:inputType="textPersonName" />
+            android:inputType="numberSigned|numberDecimal" />
 
         <EditText
             android:id="@+id/EngineVolume"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="אנא הכנס נפח מנוע"
-            android:inputType="textPersonName" />
+            android:inputType="number|numberSigned|numberDecimal" />
 
         <TextView
             android:id="@+id/textView"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="אנא הכנס מספר מקומות ישיבה"
-            android:inputType="textPersonName" />
+            android:inputType="number|numberSigned|numberDecimal" />
 
         <TextView
             android:id="@+id/textView2"

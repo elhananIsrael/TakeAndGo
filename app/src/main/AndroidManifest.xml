@@ -18,11 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.AddCustomer" android:label="הוספת לקוח:" />
-        <activity android:name=".controller.AddCar" android:label="הוספת רכב:" />
-        <activity android:name=".controller.AddCarModel"  android:label="הוספת מודל רכב:" />
-        <activity android:name=".controller.AddBranch" android:label="הוספת סניף:" />
-        <activity android:name=".controller.PrintLists" android:label="הצגת רשימות:" ></activity>
+        <activity android:name=".controller.AddCustomer" android:label="הוספת לקוח" />
+        <activity android:name=".controller.AddCar" android:label="הוספת רכב" />
+        <activity android:name=".controller.AddCarModel"  android:label="הוספת מודל רכב" />
+        <activity android:name=".controller.AddBranch" android:label="הוספת סניף" />
+        <activity android:name=".controller.PrintLists" android:label="הצגת רשימות" ></activity>
     </application>
 
 </manifest>

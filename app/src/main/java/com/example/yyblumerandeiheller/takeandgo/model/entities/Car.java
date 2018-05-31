@@ -16,7 +16,7 @@ public class Car
 
     public Car(){ }
 
-    public Car(String modelCode, String productionDate, String licenseNumber, int mileage, String homeBranch, int averageCostPerDay)
+    public Car(String modelCode, String productionDate,  int mileage, String licenseNumber,String homeBranch, int averageCostPerDay, boolean busy)
     {
        this.modelCode=modelCode;
         this.productionDate=productionDate;
@@ -24,7 +24,7 @@ public class Car
         this.mileage=mileage;
         this.homeBranch=homeBranch;
         this.averageCostPerDay=averageCostPerDay;
-        this.busy=false;
+        this.busy=busy;
     }
 
 

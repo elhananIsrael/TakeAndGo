@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yyblumerandeiheller.takeandgo.R;
@@ -29,6 +33,8 @@ public class AddCar extends AppCompatActivity {
     CalendarView calendarView;
     Spinner Model;
     EditText ProductionDate, Mileage, LicenseNumber, HomeBranch, AverageCostPerDay ;
+    LinearLayout linearLayout;
+    Switch switchBusy;
     ArrayAdapter<String> carModelsAdapter;
     static ArrayList<CarModel> carModelsSimpleList = null;
     static ArrayList<String> carModelsCodeSimpleList = new ArrayList<String>();
@@ -69,13 +75,19 @@ public class AddCar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_car);
 
+
         //not forget factory method
+        linearLayout = ((LinearLayout) findViewById( R.id.linearLayout ));
+
         Model=(Spinner) findViewById(R.id.Model);
         ProductionDate = ((EditText) findViewById( R.id.ProductionDate ));
         Mileage = ((EditText) findViewById( R.id.Mileage ));
         LicenseNumber = ((EditText) findViewById( R.id.LicenseNumber ));
         HomeBranch = ((EditText) findViewById( R.id.HomeBranch));
         AverageCostPerDay = ((EditText) findViewById( R.id.AverageCostPerDay));
+        switchBusy = ((Switch) findViewById( R.id.busySwitch));
+
+
         calendarView =( (CalendarView)   findViewById( R.id.calendarView));
         carModelsAdapter = new ArrayAdapter<String> (this, android.R.layout.simple_spinner_item, carModelsCodeSimpleList);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener()
@@ -85,7 +97,7 @@ public class AddCar extends AppCompatActivity {
                 dayOfMonth=returnTwoDigitNo(DayOfMonth);
                 Month=returnTwoDigitNo(month+1);
                 Toast.makeText(AddCar.this, "נבחר התאריך: " + dayOfMonth + "/" + Month + "/" + year  , Toast.LENGTH_LONG).show();
-                ProductionDate.setText(year+"-"+ dayOfMonth +"-" + Month  );
+                ProductionDate.setText(year+"-"+ Month +"-" + dayOfMonth );
                 //1900-05-02
             }
         });
@@ -140,10 +152,11 @@ public class AddCar extends AppCompatActivity {
                 Car car = new Car(
                         Model.getSelectedItem().toString(),
                         ProductionDate.getText().toString(),
-                        LicenseNumber.getText().toString(),
                         Integer.parseInt(Mileage.getText().toString()),
+                        LicenseNumber.getText().toString(),
                         HomeBranch.getText().toString(),
-                        Integer.parseInt(AverageCostPerDay.getText().toString())  );
+                        Integer.parseInt(AverageCostPerDay.getText().toString()),
+                        switchBusy.isChecked() );
 
                 @Override
                 protected void onPostExecute(Long idResult) {

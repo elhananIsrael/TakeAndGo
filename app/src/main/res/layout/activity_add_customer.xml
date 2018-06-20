@@ -53,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="אנא הכנס כתובת דוא''ל"
+            android:hint="אנא הכנס כתובת דואר אלקטורני"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -63,6 +63,15 @@
             android:ems="10"
             android:hint="אנא הכנס מספר כרטיס אשראי"
             android:inputType="number" />
+
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="אנא הכנס סיסמא לכניסה לאפליקציה"
+            android:inputType="textPassword"
+            android:maxLength="18" />
 
         <Button
             android:id="@+id/btnAddUser"

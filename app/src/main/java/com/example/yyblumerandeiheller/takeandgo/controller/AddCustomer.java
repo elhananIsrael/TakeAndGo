@@ -20,7 +20,7 @@ import static android.widget.Toast.makeText;
 public class AddCustomer extends AppCompatActivity {
 
 
-        EditText id,firstName,lastName, phoneNum, email, creditCardNum;
+        EditText id,firstName,lastName, phoneNum, email, creditCardNum, password;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class AddCustomer extends AppCompatActivity {
             phoneNum = ((EditText) findViewById( R.id.PhoneNum ));
             email = ((EditText) findViewById( R.id.Email ));
             creditCardNum = ((EditText) findViewById( R.id.CreditCardNum ));
+            password = ((EditText) findViewById( R.id.Password ));
 
             throw new Exception("Congratulations! Car with ID number: " + id.getText().toString()+ "added to the database. \n" );
         }
@@ -54,7 +55,10 @@ public class AddCustomer extends AppCompatActivity {
                             lastName.getText().toString(),
                             phoneNum.getText().toString(),
                             email.getText().toString(),
-                            creditCardNum.getText().toString()   );
+                            creditCardNum.getText().toString(),
+                            password.getText().toString()   );
+
+
 
                     @Override
                     protected void onPostExecute(Long idResult) {

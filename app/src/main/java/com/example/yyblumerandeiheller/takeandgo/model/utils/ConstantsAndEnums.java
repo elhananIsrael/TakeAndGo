@@ -47,7 +47,8 @@ public class ConstantsAndEnums {
         public static final String LAST_NAME = "LastName";
         public static final String PHONE_NUM = "PhoneNum";
         public static final String EMAIL = "Email";
-        public static final String CREDIT_CARD_NUM = "CreditCardNum";    }
+        public static final String CREDIT_CARD_NUM = "CreditCardNum";
+        public static final String PASSWORD = "Password"; }
 
 
     public static class CarConst {
@@ -103,6 +104,8 @@ public class ConstantsAndEnums {
         contentValues.put(CustomerConst.PHONE_NUM, customer.getPhoneNum());
         contentValues.put(CustomerConst.EMAIL, customer.getEmail());
         contentValues.put(CustomerConst.CREDIT_CARD_NUM, customer.getCreditCardNum());
+        contentValues.put(CustomerConst.PASSWORD, customer.getPassword());
+
         return contentValues; }
 
 
@@ -115,6 +118,8 @@ public class ConstantsAndEnums {
         customer.setPhoneNum(contentValues.getAsString(CustomerConst.PHONE_NUM));
         customer.setEmail(contentValues.getAsString(CustomerConst.EMAIL));
         customer.setCreditCardNum(contentValues.getAsString(CustomerConst.CREDIT_CARD_NUM));
+        customer.setPassword(contentValues.getAsString(CustomerConst.PASSWORD));
+
         return customer; }
 
 

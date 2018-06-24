@@ -48,14 +48,16 @@ public class LookingForBusyCarService extends Service {
                     isFirstTime=false;
                     carAvailable= FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarAvailable();
 
-                    Intent broadcastIntent = new Intent();
-                    broadcastIntent.setAction(ACTION_RESP);
-                    broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
-                    broadcastIntent.putExtra(PARAM_OUT_MSG, "Cars available: " + carAvailable.toString());
-                    sendBroadcast(broadcastIntent);
+                    for (Car newCar : carAvailable) {
 
-                    Log.d("Take&Go-Service", "Start Sending message..");
+                        Intent broadcastIntent = new Intent();
+                        broadcastIntent.setAction(ACTION_RESP);
+                        broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
+                        broadcastIntent.putExtra(PARAM_OUT_MSG, "car with licenseNumber: "  + newCar.getLicenseNumber() + " available.");
+                        sendBroadcast(broadcastIntent);
+                        Log.d("Take&Go-Service", "car with licenseNumber: "  + newCar.getLicenseNumber() + " available.");
 
+                    }
                 }
 
                 else {
@@ -73,12 +75,16 @@ public class LookingForBusyCarService extends Service {
                     carAvailable.addAll(tempCarAvailable);
                     if(!lastCarAvailable.isEmpty())
                     {
-                        Intent broadcastIntent = new Intent();
-                        broadcastIntent.setAction(ACTION_RESP);
-                        broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
-                        broadcastIntent.putExtra(PARAM_OUT_MSG, "Last cars available: " + lastCarAvailable.toString());
-                        sendBroadcast(broadcastIntent);
-                        Log.d("Take&Go-Service", "Last cars available: " + lastCarAvailable.toString());
+                        for (Car newCar : lastCarAvailable) {
+
+                            Intent broadcastIntent = new Intent();
+                            broadcastIntent.setAction(ACTION_RESP);
+                            broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
+                            broadcastIntent.putExtra(PARAM_OUT_MSG, "new car with licenseNumber: "  + newCar.getLicenseNumber() + " available.");
+                            sendBroadcast(broadcastIntent);
+                            Log.d("Take&Go-Service", "new car with licenseNumber: "  + newCar.getLicenseNumber() + " available.");
+
+                        }
                     }
 
                 }

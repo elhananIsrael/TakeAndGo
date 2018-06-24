@@ -30,5 +30,10 @@ public interface DataSource {
     ArrayList<Branch> allBranches();
     ArrayList<Order> allOrders();
 
+
+    //extra
+    ArrayList<Car> allCarAvailable();
+
+
 ////////////
 }

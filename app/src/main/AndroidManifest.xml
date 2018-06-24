@@ -3,12 +3,13 @@
     package="com.example.yyblumerandeiheller.takeandgo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher2"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".controller.MainActivity">
@@ -18,11 +19,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.AddCustomer" android:label="הוספת לקוח" />
-        <activity android:name=".controller.AddCar" android:label="הוספת רכב" />
-        <activity android:name=".controller.AddCarModel"  android:label="הוספת מודל רכב" />
-        <activity android:name=".controller.AddBranch" android:label="הוספת סניף" />
-        <activity android:name=".controller.PrintLists" android:label="הצגת רשימות" ></activity>
+        <activity
+            android:name=".controller.AddCustomer"
+            android:label="הוספת לקוח" />
+        <activity
+            android:name=".controller.AddCar"
+            android:label="הוספת רכב" />
+        <activity
+            android:name=".controller.AddCarModel"
+            android:label="הוספת מודל רכב" />
+        <activity
+            android:name=".controller.AddBranch"
+            android:label="הוספת סניף" />
+        <activity
+            android:name=".controller.PrintLists"
+            android:label="הצגת רשימות" />
+
+        <service
+            android:name=".controller.LookingForBusyCarService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

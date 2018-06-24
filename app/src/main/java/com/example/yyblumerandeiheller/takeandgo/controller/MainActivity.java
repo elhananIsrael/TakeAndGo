@@ -23,6 +23,9 @@ import com.example.yyblumerandeiheller.takeandgo.model.utils.ConstantsAndEnums;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
+            startService(new Intent(getBaseContext(), LookingForBusyCarService.class));
+
+
             } catch (Exception e) {
                 Log.e( ConstantsAndEnums.Log.TAG,e.getMessage());
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();

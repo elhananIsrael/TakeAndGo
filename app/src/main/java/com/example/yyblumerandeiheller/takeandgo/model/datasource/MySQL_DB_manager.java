@@ -351,4 +351,31 @@ public class MySQL_DB_manager implements DataSource
         }
         return null;
     }
+
+    @Override
+    public ArrayList<Car> allCarAvailable() {
+
+        ArrayList<Car> cars = new ArrayList<>();
+
+        try {
+
+            String str = PHP_Tools.GET(WEB_URL + "/getCarsAvailable.php");
+            JSONArray array = new JSONObject(str).getJSONArray("Cars");
+
+
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject(i);
+
+                ContentValues contentValues = PHP_Tools.JsonToContentValues(jsonObject);
+                Car car = ConstantsAndEnums.ContentValuesToCar(contentValues);
+
+                cars.add(car);
+            }
+            return cars;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

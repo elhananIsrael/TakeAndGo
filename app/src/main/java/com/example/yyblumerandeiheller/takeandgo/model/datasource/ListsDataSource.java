@@ -133,4 +133,9 @@ public class ListsDataSource implements DataSource {
     public ArrayList<Order> allOrders() {
         return this.orders;
     }
+
+    @Override
+    public ArrayList<Car> allCarAvailable() {
+        return null;
+    }
 }

@@ -9,33 +9,26 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 import com.example.yyblumerandeiheller.takeandgo.model.backend.FactoryMethod;
-import com.example.yyblumerandeiheller.takeandgo.model.datasource.MySQL_DB_manager;
 import com.example.yyblumerandeiheller.takeandgo.model.entities.Car;
-
-
-import java.sql.SQLData;
-import java.sql.SQLException;
-import java.sql.SQLInput;
-import java.sql.SQLOutput;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class LookingForBusyCarService extends Service {
-    ArrayList<Car> carAvailable=new ArrayList<Car>();
-    ArrayList<Car> tempCarAvailable=new ArrayList<Car>();
-    ArrayList<Car> lastCarAvailable=new ArrayList<Car>();
+    ArrayList<Car> carAvailable=new ArrayList();
+    ArrayList<Car> tempCarAvailable=new ArrayList();
+    ArrayList<Car> lastCarAvailable=new ArrayList();
 
     boolean isFirstTime=true;
-    static int count = 1;
     int id = 0, startId = -1;
     boolean isRun = false;
     final String TAG = "testService";
     private Timer timer = new Timer();
     static final int UPDATE_INTERVAL = 1000 * 10;
     public static final String PARAM_OUT_MSG = "OUT_MESSAGE";
+    public static final String ACTION_RESP =
+            "takego_clientside.yaakovblumer.example.com.intent.action.MESSAGE_PROCESSED";
+
 
     String serviceInfo()
     {
@@ -53,17 +46,15 @@ public class LookingForBusyCarService extends Service {
                 if(isFirstTime)
                 {
                     isFirstTime=false;
-                    // login.carAvailableList(carAvailable);
                     carAvailable= FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarAvailable();
 
                     Intent broadcastIntent = new Intent();
-                    broadcastIntent.setAction(ResponseReceiver.ACTION_RESP);
+                    broadcastIntent.setAction(ACTION_RESP);
                     broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
                     broadcastIntent.putExtra(PARAM_OUT_MSG, "Cars available: " + carAvailable.toString());
                     sendBroadcast(broadcastIntent);
 
-                    Log.d("LookingForBusyCarService", "Start Sending message..");
-                    // Toast.makeText(this, "Service Sending", Toast.LENGTH_LONG).show();
+                    Log.d("Take&Go-Service", "Start Sending message..");
 
                 }
 
@@ -83,11 +74,11 @@ public class LookingForBusyCarService extends Service {
                     if(!lastCarAvailable.isEmpty())
                     {
                         Intent broadcastIntent = new Intent();
-                        broadcastIntent.setAction(ResponseReceiver.ACTION_RESP);
+                        broadcastIntent.setAction(ACTION_RESP);
                         broadcastIntent.addCategory(Intent.CATEGORY_DEFAULT);
                         broadcastIntent.putExtra(PARAM_OUT_MSG, "Last cars available: " + lastCarAvailable.toString());
                         sendBroadcast(broadcastIntent);
-                        Log.d("LookingForBusyCarService", "Last cars available: " + lastCarAvailable.toString());
+                        Log.d("Take&Go-Service", "Last cars available: " + lastCarAvailable.toString());
                     }
 
                 }

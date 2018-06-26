@@ -265,11 +265,13 @@ public class PrintLists extends AppCompatActivity {
 
                     @Override
                         protected Void doInBackground(Void... params) {
+                        if(branchArrayList==null)
+                            branchArrayList= new ArrayList<>();
                         branchArrayList.clear();
-                        branchArrayList.addAll(FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allBranches());
-                            for (Branch item : branchArrayList) {
-                                temp+=item.ToString();
-                            }
+                        branchArrayList=FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allBranches();
+                           // for (Branch item : branchArrayList) {
+                          //      temp+=item.ToString();
+                        //    }
 
                             return null;
 
@@ -279,6 +281,8 @@ public class PrintLists extends AppCompatActivity {
                     protected void onPostExecute(Void aVoid) {
                         try {
                         super.onPostExecute(aVoid);
+                            if(branchArrayList==null)
+                                branchArrayList= new ArrayList<>();
                         branchArrayAdapter.notifyDataSetChanged();
                       //  textView4.setText(temp);
                             ListOfItems.setAdapter(branchArrayAdapter);
@@ -304,11 +308,13 @@ public class PrintLists extends AppCompatActivity {
 
                         @Override
                         protected Void doInBackground(Void... params) {
+                            if(carArrayList==null)
+                                carArrayList= new ArrayList<>();
                             carArrayList.clear();
-                            carArrayList.addAll(FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCars());
-                            for (Car item : carArrayList) {
-                                temp+=item.ToString();
-                            }
+                            carArrayList=FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCars();
+                            //for (Car item : carArrayList) {
+                            //    temp+=item.ToString();
+                          //  }
 
                             return null;
 
@@ -319,6 +325,8 @@ public class PrintLists extends AppCompatActivity {
                         protected void onPostExecute(Void aVoid) {
                             try {
                             super.onPostExecute(aVoid);
+                                if(carArrayList==null)
+                                    carArrayList= new ArrayList<>();
                            // textView4.setText(temp);
                                 carArrayAdapter.notifyDataSetChanged();
                                 ListOfItems.setAdapter(carArrayAdapter);
@@ -346,11 +354,13 @@ public class PrintLists extends AppCompatActivity {
 
                         @Override
                         protected Void doInBackground(Void... params) {
+                            if(carModelArrayList==null)
+                                carModelArrayList= new ArrayList<>();
                             carModelArrayAdapter.clear();
-                            carModelArrayList.addAll(FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels());
-                            for (CarModel item : carModelArrayList) {
-                                temp+=item.ToString();
-                            }
+                            carModelArrayList=FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCarModels();
+                        //    for (CarModel item : carModelArrayList) {
+                          //      temp+=item.ToString();
+                           // }
 
                             return null;
 
@@ -360,6 +370,8 @@ public class PrintLists extends AppCompatActivity {
                         protected void onPostExecute(Void aVoid) {
                             try {
                                 super.onPostExecute(aVoid);
+                                if(carModelArrayList==null)
+                                    carModelArrayList= new ArrayList<>();
                                 carModelArrayAdapter.notifyDataSetChanged();
                                 //  textView4.setText(temp);
                                 ListOfItems.setAdapter(carModelArrayAdapter);
@@ -385,11 +397,13 @@ public class PrintLists extends AppCompatActivity {
 
                         @Override
                         protected Void doInBackground(Void... params) {
+                            if(customerArrayList==null)
+                                customerArrayList= new ArrayList<>();
                             customerArrayList.clear();
-                            customerArrayList.addAll(FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCustomers());
-                            for (Customer item : customerArrayList) {
-                                temp+=item.ToString();
-                            }
+                            customerArrayList=FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allCustomers();
+                            //for (Customer item : customerArrayList) {
+                            //    temp+=item.ToString();
+                         ///   }
 
                             return null;
 
@@ -399,6 +413,8 @@ public class PrintLists extends AppCompatActivity {
                         protected void onPostExecute(Void aVoid) {
                             try {
                                 super.onPostExecute(aVoid);
+                                if(customerArrayList==null)
+                                    customerArrayList= new ArrayList<>();
                                 customerArrayAdapter.notifyDataSetChanged();
                                 //  textView4.setText(temp);
                                 ListOfItems.setAdapter(customerArrayAdapter);
@@ -423,11 +439,11 @@ public class PrintLists extends AppCompatActivity {
 
                         @Override
                         protected Void doInBackground(Void... params) {
+                            if(orderArrayList==null)
+                                orderArrayList= new ArrayList<>();
                             orderArrayList.clear();
-                            orderArrayList.addAll(FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allOrders());
-                            for (Order item : orderArrayList) {
-                                temp+=item.ToString();
-                            }
+                            orderArrayList=FactoryMethod.getDataSource(FactoryMethod.Type.MySQL).allOrders();
+
 
                             return null;
 
@@ -437,6 +453,8 @@ public class PrintLists extends AppCompatActivity {
                         protected void onPostExecute(Void aVoid) {
                             try {
                                 super.onPostExecute(aVoid);
+                                if(orderArrayList==null)
+                                    orderArrayList= new ArrayList<>();
                                 orderArrayAdapter.notifyDataSetChanged();
                                 //  textView4.setText(temp);
                                 ListOfItems.setAdapter(orderArrayAdapter);

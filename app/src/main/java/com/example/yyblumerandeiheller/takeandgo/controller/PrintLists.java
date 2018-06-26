@@ -283,6 +283,8 @@ public class PrintLists extends AppCompatActivity {
                         super.onPostExecute(aVoid);
                             if(branchArrayList==null)
                                 branchArrayList= new ArrayList<>();
+                            branchArrayAdapter.clear();
+                            branchArrayAdapter.addAll(branchArrayList);
                         branchArrayAdapter.notifyDataSetChanged();
                       //  textView4.setText(temp);
                             ListOfItems.setAdapter(branchArrayAdapter);
@@ -327,6 +329,8 @@ public class PrintLists extends AppCompatActivity {
                             super.onPostExecute(aVoid);
                                 if(carArrayList==null)
                                     carArrayList= new ArrayList<>();
+                                carArrayAdapter.clear();
+                                carArrayAdapter.addAll(carArrayList);
                            // textView4.setText(temp);
                                 carArrayAdapter.notifyDataSetChanged();
                                 ListOfItems.setAdapter(carArrayAdapter);
@@ -372,6 +376,9 @@ public class PrintLists extends AppCompatActivity {
                                 super.onPostExecute(aVoid);
                                 if(carModelArrayList==null)
                                     carModelArrayList= new ArrayList<>();
+                                carModelArrayAdapter.clear();
+                                carModelArrayAdapter.addAll(carModelArrayList);
+
                                 carModelArrayAdapter.notifyDataSetChanged();
                                 //  textView4.setText(temp);
                                 ListOfItems.setAdapter(carModelArrayAdapter);
@@ -415,6 +422,10 @@ public class PrintLists extends AppCompatActivity {
                                 super.onPostExecute(aVoid);
                                 if(customerArrayList==null)
                                     customerArrayList= new ArrayList<>();
+
+                                customerArrayAdapter.clear();
+                                customerArrayAdapter.addAll(customerArrayList);
+
                                 customerArrayAdapter.notifyDataSetChanged();
                                 //  textView4.setText(temp);
                                 ListOfItems.setAdapter(customerArrayAdapter);
@@ -455,6 +466,9 @@ public class PrintLists extends AppCompatActivity {
                                 super.onPostExecute(aVoid);
                                 if(orderArrayList==null)
                                     orderArrayList= new ArrayList<>();
+                                orderArrayAdapter.clear();
+                                orderArrayAdapter.addAll(orderArrayList);
+
                                 orderArrayAdapter.notifyDataSetChanged();
                                 //  textView4.setText(temp);
                                 ListOfItems.setAdapter(orderArrayAdapter);
